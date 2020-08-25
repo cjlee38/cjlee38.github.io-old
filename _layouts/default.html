@@ -5,10 +5,13 @@
   {%- include head.html -%}
 </head>
 
+
 <body>
   <main class="container">
+    <!-- about -->
     <section class="about">
-      <a href="{{ "/" | relative_url}}"><img src="{{site.baseurl }}/{{ site.plainwhite.portfolio_image }}" alt="{{ site.plainwhite.name }}"></a>
+      <a href="{{ "/" | relative_url}}"><img src="{{site.baseurl }}/{{ site.plainwhite.portfolio_image }}"
+          alt="{{ site.plainwhite.name }}"></a>
       <h2 id="title">
         <a href="{{ "/" | relative_url }}">{{ site.plainwhite.name }}</a>
       </h2>
@@ -21,7 +24,7 @@
           </li>
         </a>
         {%- endif -%}
-		{%- if site.plainwhite.social_links.gitlab -%}
+        {%- if site.plainwhite.social_links.gitlab -%}
         <a href="https://gitlab.com/{{ site.plainwhite.social_links.gitlab }}" target="_blank">
           <li>
             <i class="icon-gitlab"></i>
@@ -125,8 +128,30 @@
       <script type="text/javascript" src="{{ "/assets/js/darkmode.js" | relative_url }}"></script>
       {%- endif -%}
     </section>
+    <!-- content -->
     <section class="content">
-      {{ content }}
+      <!-- headline -->
+      <div id="header">
+        <!-- header title-->
+        <p id="header-title" , href={{ site.url }}>[ CACHE MEMORY ] </p>
+        <!-- searchBar here -->
+        <li class="posts-labelgroup" id="posts-labelgroup">
+          <h1 id="posts-label">posts</h1>
+          {% if site.plainwhite.search %}
+          <div class="search-container">
+            <div class="search-section">
+              <i class="icon-search"></i>
+              <input type="text" name="search" id="searchbar" autocomplete="off" aria-label="search in posts">
+            </div>
+            <div class="search-results" id="search-results" data-placeholder="No Results" style="display: none;"></div>
+          </div>
+          {% endif %}
+        </li>
+        <!-- dash line-->
+        <br>
+        <hr class="horizontal-line">
+        {{ content }}
+      </div>
     </section>
   </main>
   {%- if site.plainwhite.analytics_id -%}

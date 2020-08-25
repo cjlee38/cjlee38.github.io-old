@@ -31,7 +31,7 @@ video {
 }
 
 a {
-  color: #000;
+  color: rgb(0, 0, 0);
   transition: color 0.3s;
   &:hover {
     color: $linkColor;
@@ -250,7 +250,9 @@ main {
   }
 }
 .posts-labelgroup {
-  margin: 0 0 0.67em 0;
+  width: 30%;
+  float: right;
+  margin: 0 3% 1% 0;
   display: flex;
   align-items: baseline;
   border-bottom: 1px solid #eee;

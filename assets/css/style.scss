@@ -2,6 +2,7 @@
 ---
 
 @import "plain";
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
 
 {% if site.plainwhite.search %}
   @import "search";
@@ -11,3 +12,39 @@
   @import "toggle";
   @import "dark";
 {%- endif -%}
+
+.alignCenter {
+  display: block;
+  margin: auto;
+}
+
+.alignLeft {
+  float: left;
+}
+
+.alignRight {
+  float: right;
+}
+
+#header {
+  margin: 0 10% 1em 10%;
+}
+#header-title {
+  margin: 1em 0 1em 0;
+  text-align: center;
+  font-weight: bold;
+  font-size: xxx-large;
+}
+
+.horizontal-line {
+  border: none;
+  border-top: 2px dashed silver;
+  color: #fff;
+  background-color: #fff;
+  height: 3px;
+  width: 100%;
+}
+
+.tester {
+  list-style-type: none;
+}

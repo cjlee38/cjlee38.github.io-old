@@ -48,6 +48,12 @@ plainwhite:
   navigation: 
     - title: test
       url: "/category/test"
+    - title: DIARY
+      url: "/category/DIARY"
+    - title: Outer
+      url: "category/Outer"
+    - title: inside
+      url: "/category/Outer/inside"
 # base_url: "/blog"
 
 
