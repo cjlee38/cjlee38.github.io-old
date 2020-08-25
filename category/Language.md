@@ -1,5 +1,5 @@
 ---
 layout: category
-title: Linux
+title: Python
 parent: root
 ---

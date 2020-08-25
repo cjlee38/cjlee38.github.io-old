@@ -105,10 +105,20 @@
       {%- if site.plainwhite.navigation -%}
       <nav class="navigation">
         <ul>
+          <!-- edit here for sub category -->
           {% for link in site.plainwhite.navigation %}
           <li>
-            <a href="{{ link.url }}">{{ link.title }}</a>
+            <a class="parent" href="{{ link.url }}">{{ link.title }}</a>
           </li>
+          {% if link.children %}
+          <ul>
+            {% for child in link.children %}
+            <li>
+              <a class="child" href="{{ child.url }}"> {{ child.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
           {% endfor %}
         </ul>
       </nav>

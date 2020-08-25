@@ -224,6 +224,21 @@ main {
 .post-container {
   padding-left: 30px;
 }
+
+
+// -- custom start
+.post-object,
+.post-counter {
+  border-bottom: 1px solid silver;
+  padding: 1em;
+}
+.post-counter {
+  text-align: right;
+  font-size: xx-large;
+  font-style: italic;
+}
+
+// -- custome end
 .post {
   font-family: "Merriweather", sans-serif;
   font-weight: 300;

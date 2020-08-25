@@ -1,5 +1,5 @@
 ---
 layout: category
-title: Linux
+title: Data
 parent: root
 ---

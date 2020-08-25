@@ -2,11 +2,15 @@
 layout: default
 ---
 
+{%- if page.title -%}
+<h1 class="page-heading">{{ page.title }}</h1>
+{%- endif -%}
+
+{{ content }}
+
 {%- if site.posts.size > 0 -%}
+{%- for post in site.posts -%}
 <ul class="posts">
-  {%- assign category = page.category | default: page.title -%}
-  <p class="post-counter" > {{ category }} ({{ site.categories[category] | size }}) </p>
-  {%- for post in site.categories[category] -%}
   <li>
     {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
     <a class="post-link" href="{{ post.url | relative_url }}">
@@ -34,3 +38,6 @@ layout: default
   {%- endfor -%}
 </ul>
 {%- endif -%}
+<!-- <p class="feed-subscribe"><svg class="svg-icon orange">
+		<use xlink:href="{{ '/assets/minima-social-icons.svg#rss' | relative_url }}"></use>
+	</svg><a href="{{ "/feed.xml" | relative_url }}">Subscribe</a></p> -->

@@ -48,8 +48,11 @@ plainwhite:
   navigation: 
     - title: Diary
       url: "/category/Diary"
+      children:
+        - title: subdemo
+          url: subdemo
     - title: Linux
-      url: "category/Linux"
+      url: "/category/Linux"
     - title: App
       url: "/category/App"
     - title: Data
@@ -73,3 +76,4 @@ remote_theme: samarsault/plainwhite-jekyll
 plugins:
   - jekyll-seo-tag
 #  - jekyll-feed
+
