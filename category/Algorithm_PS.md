@@ -1,7 +1,4 @@
 ---
-
 layout: category
-
-title: About me 
-
+title: PS
 ---

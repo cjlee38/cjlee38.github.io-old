@@ -1,7 +1,4 @@
 ---
-
 layout: category
-
-title: Javascript
-
+title: App
 ---

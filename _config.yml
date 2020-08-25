@@ -46,14 +46,18 @@ plainwhite:
   # customizing area --- 
   disqus_shortname: games2
   navigation: 
-    - title: test
-      url: "/category/test"
-    - title: DIARY
-      url: "/category/DIARY"
-    - title: Outer
-      url: "category/Outer"
-    - title: inside
-      url: "/category/Outer/inside"
+    - title: Diary
+      url: "/category/Diary"
+    - title: Linux
+      url: "category/Linux"
+    - title: App
+      url: "/category/App"
+    - title: Data
+      url: "/category/Data"
+    - title: Language - python
+      url: "/category/Python"
+    - title: Algorithm - PS
+      url: "/categroy/PS"
 # base_url: "/blog"
 
 
