@@ -57,10 +57,16 @@ plainwhite:
       url: "/category/App"
     - title: Data
       url: "/category/Data"
-    - title: Language - python
-      url: "/category/Python"
-    - title: Algorithm - PS
-      url: "/categroy/PS"
+    - title: Language
+      url: "/category/Language"
+      children:
+        - title: Python
+          url: "/category/Language/Python"
+    - title: Algorithm
+      url: "/categroy/Algorithm"
+      children:
+        - title: Problem Solving
+          url: "/category/Algorithm/PS"
 # base_url: "/blog"
 
 

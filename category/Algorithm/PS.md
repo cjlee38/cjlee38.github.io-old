@@ -1,4 +1,4 @@
 ---
 layout: category
-title: PS
+title: Problem Solving
 ---
