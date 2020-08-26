@@ -75,7 +75,7 @@ main {
   .about {
     display: flex;
     height: 100vh;
-    padding-bottom: 15vh;
+    padding-bottom: 0;
     @media screen and (max-width: $mobileW) {
       height: auto;
       padding: 10vh 0;
@@ -147,8 +147,8 @@ main {
     a {
       display: block;
       font-family: 'Merriweather';
-      text-align: center;
-      padding: 1rem 0;
+      text-align: left;
+      padding: 0.7rem 0;
       text-decoration: none;
       border-bottom: 1px solid #ececec;
 
@@ -225,18 +225,6 @@ main {
   padding-left: 30px;
 }
 
-
-// -- custom start
-.post-object,
-.post-counter {
-  border-bottom: 1px solid silver;
-  padding: 1em;
-}
-.post-counter {
-  text-align: right;
-  font-size: xx-large;
-  font-style: italic;
-}
 
 // -- custome end
 .post {

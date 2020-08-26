@@ -11,7 +11,7 @@ sass:
   sass_dir: _sass
 plainwhite:
   name: CJLEE
-  tagline: Developer
+  tagline: "방구석 개발자"
   #date_format: "%b %-d, %Y"
   date_format: "%F[%a]"
   sitemap: true # set to true to generate sitemap.xml content
@@ -44,13 +44,11 @@ plainwhite:
     #   instance: example.com
   
   # customizing area --- 
+  analytics_id: "UA-174927148-2"
   disqus_shortname: games2
   navigation: 
     - title: Diary
       url: "/category/Diary"
-      children:
-        - title: subdemo
-          url: subdemo
     - title: Linux
       url: "/category/Linux"
     - title: App
@@ -63,10 +61,15 @@ plainwhite:
         - title: Python
           url: "/category/Language/Python"
     - title: Algorithm
-      url: "/categroy/Algorithm"
+      url: "/category/Algorithm"
       children:
         - title: Problem Solving
           url: "/category/Algorithm/PS"
+    - title: Git
+      url: "/category/Git"
+      children:
+        - title: Githublog
+          url: "/category/Git/Githublog"
 # base_url: "/blog"
 
 
@@ -78,8 +81,10 @@ plainwhite:
 # Build settings
 theme: plainwhite
 remote_theme: samarsault/plainwhite-jekyll
+# remote_theme: benbalter/retlab
 
 plugins:
   - jekyll-seo-tag
 #  - jekyll-feed
 
+test_2var: "hello world!"

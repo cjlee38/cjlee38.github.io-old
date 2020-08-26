@@ -9,14 +9,9 @@ layout: default
 {{ content }}
 
 
-<!-- check if its array or hash : using index validation-->
-
-
-
-
 {%- if site.posts.size > 0 -%}
   <ul class="posts">
-    <p class="post-counter"> Entire ({{ site.posts | size}}) </p>
+    <p class="post-counter"> Posts ({{ site.posts | size }}) </p>
     {%- for post in site.posts -%}
       <li class="post-object">
         {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
@@ -44,8 +39,8 @@ layout: default
       </li>
     {%- endfor -%}
   </ul>
+{%- endif -%}
 
   <!-- <p class="feed-subscribe"><svg class="svg-icon orange">
 		<use xlink:href="{{ '/assets/minima-social-icons.svg#rss' | relative_url }}"></use>
 	</svg><a href="{{ "/feed.xml" | relative_url }}">Subscribe</a></p> -->
-{%- endif -%}
