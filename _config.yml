@@ -13,7 +13,7 @@ plainwhite:
   name: CJLEE
   tagline: "방구석 개발자"
   #date_format: "%b %-d, %Y"
-  date_format: "%F[%a]"
+  date_format: "%F [%a]"
   sitemap: true # set to true to generate sitemap.xml content
   search: true # set to true to enable searchbar
   dark_mode: true # set to true to add dark mode toggle
