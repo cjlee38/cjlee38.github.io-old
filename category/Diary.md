@@ -1,7 +1,4 @@
 ---
-
 layout: category
-
-title: inside
-
+title: Diary
 ---
