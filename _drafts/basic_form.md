@@ -17,3 +17,7 @@ tags:
 
 link: [title](url)
 image ![title](url){. :alignCenter}
+
+liquid 
+{{ "{% something " }}%} : {% something %}
+{{ "{{ something " }}}} : {{ something }}

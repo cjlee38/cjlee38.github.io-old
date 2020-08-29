@@ -48,28 +48,16 @@ plainwhite:
   disqus_shortname: games2
   navigation: 
     - title: Diary
-      url: "/category/Diary"
     - title: Linux
-      url: "/category/Linux"
     - title: App
-      url: "/category/App"
     - title: Data
-      url: "/category/Data"
+      children: [Data_Engineering]
     - title: Language
-      url: "/category/Language"
-      children:
-        - title: Python
-          url: "/category/Language/Python"
+      children: [Python]
     - title: Algorithm
-      url: "/category/Algorithm"
-      children:
-        - title: Problem Solving
-          url: "/category/Algorithm/PS"
+      children: [Problem_Solving]
     - title: Git
-      url: "/category/Git"
-      children:
-        - title: Githublog
-          url: "/category/Git/Githublog"
+      children: [Githublog]
 # base_url: "/blog"
 
 

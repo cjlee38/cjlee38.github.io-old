@@ -2,11 +2,28 @@
 layout: default
 ---
 
+
+
+
+
+
 {%- if site.posts.size > 0 -%}
 <ul class="posts">
+  
   {%- assign category = page.category | default: page.title -%}
-  <p class="post-counter" > {{ category }} ({{ site.categories[category] | size }}) </p>
-  {%- for post in site.categories[category] -%}
+  {% assign posts = site.categories[category] %}
+  {% for parent in site.plainwhite.navigation %}
+    {% if parent.title == category and parent.children %}
+      {% for child in parent.children %}
+        {% if site.categories[child].size %}
+          {% assign posts = posts | concat: site.categories[child] %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+
+  <p class="post-counter" > {{ category }} ({{ posts | size }}) </p>
+  {%- for post in posts -%}
   <li>
     {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
     <a class="post-link" href="{{ post.url | relative_url }}">
