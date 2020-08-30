@@ -44,14 +44,14 @@ plainwhite:
     #   instance: example.com
   
   # customizing area --- 
-  analytics_id: "UA-174927148-2"
+  analytics_id: "UA-174927148-1"
   disqus_shortname: games2
   navigation: 
     - title: Diary
     - title: Linux
     - title: App
     - title: Data
-      children: [Data_Engineering]
+      children: [Data_Engineering, Data_Mining]
     - title: Language
       children: [Python]
     - title: Algorithm
@@ -74,5 +74,3 @@ remote_theme: samarsault/plainwhite-jekyll
 plugins:
   - jekyll-seo-tag
 #  - jekyll-feed
-
-test_2var: "hello world!"
