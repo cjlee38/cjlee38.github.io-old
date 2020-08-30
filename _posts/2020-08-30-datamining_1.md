@@ -142,7 +142,8 @@ Level 4. [(A,B,C,D)] --> 1개
 
 또한, (A)와 같은 단일항목집합에만 해당하는 것이 아니고, (A,B)와 같은 여러개의 item을 포함하고 있는 Itemset에서 출발할 수도 있다.
 
-그렇다면, 비빈발(infrequent)의 기준은 어떻게 정할까? 이 또한 비즈니스 전문가가 정한다. 이를 **"최소지지도"** 라 한다.(어찌보면, 도메인 지식을 갖고 있는 사람이 기준을 정하는 것은 당연하기도 하다.)  
+그렇다면, 비빈발(infrequent)의 기준은 어떻게 정할까? 이 또한 비즈니스 전문가가 정한다. 이를 **"최소지지도"** 라 한다.
+(어찌보면, 도메인 지식을 갖고 있는 사람이 이 기준을 정하는 것은 당연하기도 하다.)  
 그러나, **"통상적"** 으로, 0.5를 기준으로 둔다고 **"카더라."**
 
 
@@ -154,7 +155,7 @@ Level 4. [(A,B,C,D)] --> 1개
 5. Level.2에서, 최소지지도를 만족하지 못하는 Itemset을 **쳐낸다.**
 6. Level이 item의 개수(A,B,C,D의 4개)가 될 때까지 계속해서 반복.
 
-이를, 그림으로 표현하면 다음과 같다.
+이를 그림으로 표현하면 다음과 같다.
 
 ![apriori](/assets/images/2020-08-30-23-31-35_2020-08-30-datamining_1.md.png){: .alignCenter}
 
@@ -180,7 +181,7 @@ public class Apriori {
     /**
      * Example :
      * 
-     * Set<Set<String>> transactions = getTransactions(); // superset : set of ransactions, subset : set of items
+     * Set<Set<String>> transactions = getTransactions(); // superset : set of transactions, subset : set of items
      * Float minSupport = (float) 0.5;
      * Apriori apriori = new Apriori()'
      * apriori.run();
@@ -259,8 +260,6 @@ AssociationRule.java
 ```java
 
 import com.google.common.collect.Sets;
-import com.hufsSchedule.hufsScheduleSystem.SuggSys.Objs.AssociationRuleObj;
-
 import java.util.*;
 
 
@@ -375,4 +374,4 @@ public class AssociationRule {
 - [https://ratsgo.github.io/machine%20learning/2017/04/08/apriori/](https://ratsgo.github.io/machine%20learning/2017/04/08/apriori/)    
 - [https://rfriend.tistory.com/191](https://rfriend.tistory.com/191)
 - 김용, Apriori 알고리즘 기반의 개인화 정보 추천 시스템 설계 및 구현에 관한 연구  
-한국비블리아학회지 VOL.23. NO.4 (2012):283-308,
+한국비블리아학회지 VOL.23. NO.4 (2012):283-308
