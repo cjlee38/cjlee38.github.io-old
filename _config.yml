@@ -50,6 +50,8 @@ plainwhite:
     - title: Diary
     - title: Linux
     - title: App
+    - title: Tech
+      children: [Web_Crawling]
     - title: Data
       children: [Data_Engineering, Data_Mining]
     - title: Language

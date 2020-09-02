@@ -1,4 +1,4 @@
 ---
 layout: category
-title: Problem_Solving
+title: Tech
 ---
