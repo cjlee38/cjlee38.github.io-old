@@ -183,7 +183,7 @@ public class Apriori {
      * 
      * Set<Set<String>> transactions = getTransactions(); // superset : set of transactions, subset : set of items
      * Float minSupport = (float) 0.5;
-     * Apriori apriori = new Apriori()'
+     * Apriori apriori = new Apriori(minSupport, transactions)
      * apriori.run();
      */
     private Float minSupport;
