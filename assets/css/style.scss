@@ -13,6 +13,11 @@
   @import "dark";
 {%- endif -%}
 
+.caption {
+  text-align: center;
+  color: #999999;
+}
+
 .alignCenter {
   display: block;
   margin: auto;
