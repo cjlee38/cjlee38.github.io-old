@@ -14,7 +14,7 @@ tags:
 그 과정에서, "비즈니스프로그래밍2" 수업에서 배웠던 "연관규칙"을 활용할 수 있을 것이라 판단했고, 이에 대해서 공부하기 시작하였다.
 
 # 1. 연관규칙이란?
-: 흔히, 장바구니 분석이라고도 한다. 경영학을 전공하고 있는 사람이라면, 마케팅 수업에서 **"맥주를 자주 사는 사람은 기저귀도 같이 산다"(혹은 반대로, 기저귀를 자주 사는 사람은 맥주도 자주 사더라)**  라는 이야기를 들어본 적이 있을 것이다. 
+: 흔히, 장바구니 분석이라고도 한다. 경영학을 전공하고 있는 사람이라면, 마케팅 수업에서 **"맥주를 사는 사람은 대개 기저귀도 같이 산다"(혹은 반대로, 기저귀를 사는 사람은 대개 맥주도 사더라)**  라는 이야기를 들어본 적이 있을 것이다. 
 
 전혀 연관이 없어 보이는 두 item이 왜 자주 같이 등장하는가? 를 살펴봤더니, 퇴근한 아빠가 집에서 아이를 돌보던 엄마로부터 "기저귀좀 사와라" 라는 말에 마트를 들리면서, 겸사겸사 맥주도 한 캔 산다는 이야기다.
 
@@ -336,6 +336,34 @@ public class AssociationRule {
     }
 
 
+}
+```
+
+```java
+import lombok.Getter;
+import java.util.Set;
+
+/**
+ * Apriori Algorithm implementation 
+ * @author  cjlee
+ * @see     cjlee38.github.io
+ */
+@Getter
+public class AssociationRuleObj {
+    private Set<String> antecedent;
+    private Set<String> consequent;
+    private Float support;
+    private Float confidence;
+    private Float lift;
+
+    public AssociationRuleObj(Set<String> antecedent, Set<String> consequent,
+                              Float support, Float confidence, Float lift) {
+        this.antecedent = antecedent;
+        this.consequent = consequent;
+        this.support = support;
+        this.confidence = confidence;
+        this.lift = lift;
+    }
 }
 ```
 
