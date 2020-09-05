@@ -50,12 +50,13 @@ plainwhite:
     - title: Diary
     - title: Linux
     - title: App
+      children: [Flutter]
     - title: Tech
       children: [Web_Crawling]
     - title: Data
       children: [Data_Engineering, Data_Mining]
     - title: Language
-      children: [Python]
+      children: [Java, Python, Dart]
     - title: Algorithm
       children: [Problem_Solving]
     - title: Git
