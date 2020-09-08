@@ -2,7 +2,7 @@
 layout: post
 title:  "#0 주피터 노트북 서버 열기"
 date:   2020-04-30 05:56:00 +0900
-categories: [Data]
+categories: [Data_Mining]
 tags: 
 ---
 

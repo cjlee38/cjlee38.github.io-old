@@ -339,6 +339,7 @@ public class AssociationRule {
 }
 ```
 
+AssociationRuleObj.java
 ```java
 import lombok.Getter;
 import java.util.Set;
