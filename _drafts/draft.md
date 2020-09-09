@@ -6,3 +6,5 @@
 
 Java HashMap
 java 제네릭
+
+welcome, you re my rubber duck
