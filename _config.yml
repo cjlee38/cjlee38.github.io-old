@@ -58,7 +58,7 @@ plainwhite:
     - title: Language
       children: [Java, Python, Javascript]
     - title: Algorithm
-      children: [Problem_Solving]
+      children: [Data_Structure, Problem_Solving]
     - title: Git
       children: [Githublog]
 # base_url: "/blog"
