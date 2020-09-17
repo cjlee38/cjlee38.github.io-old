@@ -52,7 +52,7 @@ plainwhite:
     - title: App
       # children: [Flutter]
     - title: Tech
-      children: [Web_Crawling]
+      children: [Web_Crawling, JSP]
     - title: Data
       children: [Data_Engineering, Data_Mining]
     - title: Language

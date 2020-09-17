@@ -95,7 +95,11 @@ response = requests.get("https://openapi.naver.com/v1/search/blog.json", headers
 
 ```
 
-위 코드는, http의 headers에 내 Client ID와 Client Secret을 담아서, params에는 내가 만든 params라는 dictionary를 인자로 넘겨주겠다는 의미가 된다.
+requests 모듈은 python을 이용해 http 요청을 실행할 수 있는 라이브러리다.  
+즉, 쉽게 생각하면, "해당 인터넷 창을 연다" 라고 보면 된다.
+
+headers와 params, http의 headers에 내 Client ID와 Client Secret을 담아서,  
+params에는 내가 만든 params라는 dictionary를 담아서 인자로 넘겨주겠다는 의미가 된다.
 
 그 결과를 response로 받아서, status_code를 확인해보면 다음과 같이 200이 나타날 것이다.
 ```python
