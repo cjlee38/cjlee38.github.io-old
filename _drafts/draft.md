@@ -5,7 +5,6 @@
 4. include로 시리즈물 링크걸기
 
 # 자바
-Java HashMap
 java 제네릭
 java annotation
 
@@ -23,6 +22,9 @@ POJO
 재귀함수
 parameter argument 차이
 인코딩 이해하기
+
+# 블록체인 시리즈
+-> 수업시간때 배운거.
 
 
 
