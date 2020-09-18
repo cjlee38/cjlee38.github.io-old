@@ -41,8 +41,12 @@ context: 일종의 디렉토리 같은 것. admin/dealer/community .. 이런애�
 이걸 옮겨보자. /webapps/it 이렇게 옮겨보자(딴데로 옮겨도됌 상관X)
 그러면 이상태로는 당연히 안나옴. /conf로 가면 server.xml 있음.
 맨밑에 <Host name="localhost"  appBase="webapps"
-            unpackWARs="true" autoDeploy="true"> 밑에 
+            unpackWARs="true" autoDeploy="true"> 
+            
+            밑에 
             <context path="itt" docBase="C:\TOOLS\apache-tomcat-9.0.37\webapps\it" privileged="true"/>
+
+            
             
             이런식으로 추가해줌
 

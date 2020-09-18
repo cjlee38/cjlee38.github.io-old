@@ -106,7 +106,7 @@ public class myServlet extends HttpServlet {
 
 아래와 같이 코드를 작성하고, 이를 컴파일 시켜줘야 한다.  
 
-이 때, HttpServlet 이라고 하는 클래스는, 자바에 기본적으로 내장된 서블릿이 아니다.  
+이 때, HttpServlet 이라고 하는 클래스는, 자바에 기본적으로 내장된 클래스가 아니다.  
 따라서, 이 클래스를 갖고 있는 라이브러리와 함께 컴파일 해줘야, myServlet이 올바르게 컴파일 될 수 있다.
 
 cmd를 열어서, 다음과 같이 작성하자.
