@@ -68,9 +68,9 @@ Dynamic Page일 경우 Web server가 Web application server로 넘겨줘서 처�
 
 ___
 
-Note. [여기](https://pjh3749.tistory.com/267)를 참고하면,   
-Tomcat은 정확하게는 Web application server보다는 Servlet Container에 가깝다고 한다.   
-아직 배움이 부족해서, EJB가 무엇인지 몰라 그런갑다 하고 넘겼다..
+> Note. [여기](https://pjh3749.tistory.com/267)를 참고하면,   
+> Tomcat은 정확하게는 Web application server보다는 Servlet Container에 가깝다고 한다.   
+> 아직 배움이 부족해서, EJB가 무엇인지 몰라 그런갑다 하고 넘겼다..
 
 ___
 

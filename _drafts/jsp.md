@@ -46,7 +46,7 @@ context: 일종의 디렉토리 같은 것. admin/dealer/community .. 이런애�
             밑에 
             <context path="itt" docBase="C:\TOOLS\apache-tomcat-9.0.37\webapps\it" privileged="true"/>
 
-            
+
             
             이런식으로 추가해줌
 
@@ -109,6 +109,9 @@ e.g. localhost:8080/web-inf/classes/nana.class 는 안됌
   </servlet-mapping>
 
 했더니 어떻게되? 클라이언트는 백지인데, 서버에서 sysout이 튀어나옴.
+# 여기까지 2편 ------------------------
+
+
 
 # 9
 이제 클라 web에서 hello world 할 수 있도록 해보자.
