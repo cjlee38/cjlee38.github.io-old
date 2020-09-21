@@ -9,7 +9,6 @@ java 제네릭
 java annotation
 
 # 파이썬
-asterik (*)
 
 
 # 자료구조

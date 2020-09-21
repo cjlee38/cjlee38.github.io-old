@@ -67,6 +67,15 @@ class Solution {
 
 고민해보니, 문제가 될 부분은 아마 Stack Object 때문이라는 생각이 들어, 대신 int형으로 수정해서 제출해보았다.
 
+___
+
+(수정)
+기존에 peek() 함수를 사용했더니, 시간 초과가 났다.  
+생각해보면, peek() 함수를 사용할 일은 전혀 없는데, 왜 넣었을까..
+peek() 함수를 빼고 실행하니 효율성 문제도 통과했다.
+
+___
+
 ```java
 class Solution {
     boolean solution(String s) {
