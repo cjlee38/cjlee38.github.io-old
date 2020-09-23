@@ -79,6 +79,15 @@ public class firstServlet extends HttpServlet {
 
 잘 나타나는 모습을 볼 수 있다.
 
+이렇게 GET과 POST의 차이는 다음과 같다.
+
+|GET|POST|
+|:--:|:--:|
+|상대적으로 빠름|상대적으로 느림|
+|데이터를 URL로 전송|데이터를 Body로 전송|
+|256Byte 제한|데이터 제한 없음|
+
+
 # Encoding & Content-Type
 : 그런데, Title과 Content에 한글을 넣어서 submit을 해보자.
 

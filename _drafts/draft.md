@@ -7,6 +7,7 @@
 # 자바
 java 제네릭
 java annotation
+String, StringBuilder. StringBuffer // new String & leteral
 
 # 파이썬
 
@@ -21,11 +22,13 @@ POJO
 재귀함수
 parameter argument 차이
 인코딩 이해하기
+파싱과 직렬화의 차이?
 
 # 블록체인 시리즈
 -> 수업시간때 배운거.
 
-
+# Terminology?
+- 쉘, 터미널, 콘솔 차이.
 
 # 알고리즘
 플로이드와샬
