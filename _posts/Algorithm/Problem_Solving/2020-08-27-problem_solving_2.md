@@ -8,11 +8,11 @@ tags:
 
 [문제 링크](https://www.acmicpc.net/problem/2477)
 
-# Question.
+# PROBLEM
 
 ![1](/assets/images/2020-08-27-09-19-12_2020-08-27-ps_2.md.png){: .alignCenter}
 ![2](/assets/images/2020-08-27-09-20-02_2020-08-27-ps_2.md.png){: .alignCenter}
-# Answer.
+# SOLVE
 
 ### ** 1) 주의사항**
 

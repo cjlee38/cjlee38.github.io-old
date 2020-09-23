@@ -8,7 +8,7 @@ tags:
 
 [문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42888)
 
-# Question
+# PROBLEM
 
 오픈채팅방
 카카오톡 오픈채팅방에서는 친구가 아닌 사람들과 대화를 할 수 있는데, 본래 닉네임이 아닌 가상의 닉네임을 사용하여 채팅방에 들어갈 수 있다.
@@ -72,7 +72,7 @@ Prodo님이 들어왔습니다.
 * record : ["Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"]
 * result :  ["Prodo님이 들어왔습니다.", "Ryan님이 들어왔습니다.", "Prodo님이 나갔습니다.", "Prodo님이 들어왔습니다."]
 
-# Answer.
+# SOLVE
 
 위 문제에서, 신경써야 할 부분은 다음과 같다.
 1. 닉네임을 몇 번을 변경을 해도, 최종적인 닉네임이 해당 user에게 모두 적용되어야 한다.

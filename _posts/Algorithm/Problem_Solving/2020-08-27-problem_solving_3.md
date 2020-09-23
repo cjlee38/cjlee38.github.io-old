@@ -8,10 +8,10 @@ tags:
 
 [문제 링크](https://www.acmicpc.net/problem/1748)
 
-# Question.
+# PROBLEM
 
 ![1](/assets/images/2020-08-27-09-21-28_2020-08-27-ps_3.md.png){: .alignCenter}
-# Answer.
+# SOLVE
 
 : 이번 문제는 이해 하기에 그리 어렵지 않으므로, 바로 해결 방법으로 진행한다.
 

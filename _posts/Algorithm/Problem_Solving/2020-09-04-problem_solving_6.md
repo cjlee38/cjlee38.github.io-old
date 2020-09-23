@@ -8,7 +8,7 @@ tags:
 
 [문제 링크](https://www.acmicpc.net/problem/2457)
 
-# Question
+# PROBLEM
 
 ![question](/assets/images/2020-09-04-08-41-21_2020-09-04-ps_6.md.png){: .alignCenter}
 
@@ -22,7 +22,7 @@ tags:
 ## 예제 출력 
 2
 
-# Answer
+# SOLVE
 
 ## 1) 주의점
 : 처음에는 "꽃들의 총 개수" 라는 말이, literal 하게 꽃의 count 인 줄 알았는데, 곰곰히 생각해보니 "꽃의 종류의 개수" 라는 말이 더 정확한 것 같다. 즉, "3월 1일부터 11월 30일까지 최소 한 가지 이상의 꽃이 피어있어야 함을 의미한다.

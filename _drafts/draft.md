@@ -7,7 +7,7 @@
 # 자바
 java 제네릭
 java annotation
-String, StringBuilder. StringBuffer // new String & leteral
+String, StringBuilder. StringBuffer // new String & leteral && concatenation 속도비교
 
 # 파이썬
 
