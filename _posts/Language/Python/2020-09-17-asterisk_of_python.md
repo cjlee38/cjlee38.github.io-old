@@ -2,7 +2,7 @@
 layout: post
 title:  "# Python Asterisk(*) 다루기"
 date:   2020-09-17 09:54:00 +0900
-categories: [BTB]
+categories: [Python]
 tags: 
 ---
 
