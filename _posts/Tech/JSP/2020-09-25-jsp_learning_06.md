@@ -1,10 +1,96 @@
 ---
 layout: post
-title:  "# 6. JSP 학습기록 - JSP 와 EL(Expression Language) "
+title:  "# 6. JSP 학습기록 - doGet, doPost와 JSP, 그리고 EL(Expression Language) "
 date:   2020-09-25 16:21:00 +0900
 categories: [JSP]
 tags: 
 ---
+
+
+# doGet, doPost
+: 기존에는 Servlet에 코드를 작성할 때, service()만 사용하고,   
+get과 post를 구분하지 않았었다. 
+당연히, get과 post를 구분하는 방법이 있을텐데, 우선적으로 생각할 수 있는 방법은  
+if else 문으로 분기하는 것이다. 또한, 이에 걸맞은 method 도 존재한다.
+
+```java
+if (req.getMethod().equals("GET")) {
+    // do something for get
+} else if (req.getMethod().equals("POST")) {
+    // do something for post
+}
+```
+
+그러나, 이렇게 작성하는 것은 당연하게도 우아해보이지 않는다.  
+이에 걸맞은 method가 있는데, 바로 **doGet()**, **doPost()** method 다.
+
+```java
+@Override
+protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    //do something for get
+}
+
+@Override
+protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    // do something for post
+}
+```
+
+그렇다면, service() 함수와 어떤 관계를 가질까?
+
+우리가 작성한 Servlet이 상속받은 **HttpServlet 클래스**를 찾아가보면, 다음과 같은 코드를 볼 수 있다.
+
+```java
+protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String method = req.getMethod();
+        long lastModified;
+        if (method.equals("GET")) {
+            lastModified = this.getLastModified(req);
+            if (lastModified == -1L) {
+                this.doGet(req, resp);
+            } else {
+                long ifModifiedSince = req.getDateHeader("If-Modified-Since");
+                if (ifModifiedSince < lastModified) {
+                    this.maybeSetLastModified(resp, lastModified);
+                    this.doGet(req, resp);
+                } else {
+                    resp.setStatus(304);
+                }
+            }
+        } else if (method.equals("HEAD")) {
+            lastModified = this.getLastModified(req);
+            this.maybeSetLastModified(resp, lastModified);
+            this.doHead(req, resp);
+        } else if (method.equals("POST")) {
+            this.doPost(req, resp);
+        } else if (method.equals("PUT")) {
+            this.doPut(req, resp);
+        } else if (method.equals("DELETE")) {
+            this.doDelete(req, resp);
+        } else if (method.equals("OPTIONS")) {
+            this.doOptions(req, resp);
+        } else if (method.equals("TRACE")) {
+            this.doTrace(req, resp);
+        } else {
+            String errMsg = lStrings.getString("http.method_not_implemented");
+            Object[] errArgs = new Object[]{method};
+            errMsg = MessageFormat.format(errMsg, errArgs);
+            resp.sendError(501, errMsg);
+        }
+
+    }
+```
+
+자세한건 잘 알아보지 못하더라도,   
+대충 **각 http 방식에 걸맞는 do method를 실행**하는 것을 볼 수 있다.
+
+따라서, 우리가 service() 함수를 작성하고,   
+그 안에 **super.service(req, resp)**로   
+부모 클래스인 HttpServlet의 service() 함수를 실행하면,  
+service() 함수가 일종의 "Filter" 역할을 해줄 수 있는 것이다.
+
+앞서 우리가 봤던 Servlet Filter는 특정 Path에 대해서 걸 수도 있지만,  
+그보다 조금 더 **좁은 개념**으로 **service() 함수**를 활용할 수 있다.
 
 # JSP with Jasper
 : 지금까지 학습했던 내용들은, JSP 가 아니라 단순히 Servlet을 만드는 과정이었다.  
