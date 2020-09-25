@@ -13,7 +13,6 @@ String, StringBuilder. StringBuffer // new String & leteral && concatenation 속
 파이썬 데코레이터
 
 파이썬 str repr 차이
-파이썬 expression statement
 파이썬 클로저
 파이썬 비동기 - 이터레이터, 제너레이터, 코루틴 부터 하고나서
 파이썬 내장함수 : 공식문서에 있는애들(class인애들 주의하면서)
