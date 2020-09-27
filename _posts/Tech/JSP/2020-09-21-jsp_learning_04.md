@@ -7,7 +7,7 @@ tags:
 ---
 
 # POST 다루기
-: [지난 3편](https://cjlee38.github.io/jsp/jsp_learning_02)에 이어서, POST를 다뤄보자.
+: [지난 3편](https://cjlee38.github.io/jsp/jsp_learning_03)에 이어서, POST를 다뤄보자.
 
 이를 위해, 지난 편에 작성했던 html 코드를 조금 더 업그레이드 시켜보자.
 

@@ -8,6 +8,7 @@
 java 제네릭
 java annotation
 String, StringBuilder. StringBuffer // new String & leteral && concatenation 속도비교
+jar war 차이(https://j-a-l.tistory.com/79)
 
 # 파이썬
 파이썬 데코레이터

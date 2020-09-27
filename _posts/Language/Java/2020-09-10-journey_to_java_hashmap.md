@@ -35,6 +35,10 @@ Key라고 하는 것은 결국, Index나 Memory의 위치가 아니라, Object�
 : Hash 자체에 대한 내용은 이 포스팅에서 다루지 않는다.   
 Hash에 대한 이해가 없으면, 이 글을 읽기가 조금 어려울 수 있다.
 
+(2020.09.25 수정)  
+[Hash 맛보기](https://cjlee38.github.io/btb/what_is_hash)   
+Hash에 관해서 포스팅했습니다.
+
 # 2. HashMap의 구조
 : HashMap에 왜 Hash라는 이름이 붙었는지 이해하기 위해선,  
 먼저 그 구조를 파악하는 것이 우선이다. 
