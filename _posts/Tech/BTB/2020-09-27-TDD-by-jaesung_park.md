@@ -174,7 +174,7 @@ private static int sum(String[] values) {
 ```
 
 ### Method Point. 2 : else Keyword를 쓰지 않는다.
-: if statement 안에, `result = 0;` 을 `return 0;` 로 대체함.
+: if statement 안에, `result = 0;` 을 `return 0;` 로 대체함.  
 `result = 0;`이 남아 있다면, return이 나올때까지 **코드를 직접 눈으로 봐야함.**
 그렇다면 다음과 같은 모습이 됨.
 
@@ -285,10 +285,10 @@ public class StringCalculator {
 
 처음 읽는 사람에겐, `add()` 메소드는(이전 코드에서는 `splitAndSum()`)   **Refactoring 된 경우가 더 보기 좋다.**
 
-이러한 Refactoring을, **한번에 하나씩 하자.**  
+이러한 Refactoring을, **한번에 하나씩 하자.**   
 이 외에도 다른 연습 방법? : 15 Line의 코드를 10 Line으로 줄여보자.
 
-이러한 극단적인 연습을 하면, **"설계에 대한 Insight가 보인다."**
+이러한 극단적인 연습을 하면, **"설계에 대한 Insight가 보인다."**  
 또한, 이러한 연습이 가능한 이유는? **테스트가 뒷받침해주기 때문에.**
 
 ## <u> B. 클래스 분리</u>
@@ -463,5 +463,5 @@ A2. 본인도 그런 경험을 많이 해봤다. 이는 요구사항의 변경�
 
 
 ### Reference
-[유튜브 링크](https://www.youtube.com/watch?v=cVxqrGHxutU&ab_channel=OKKY)
+[유튜브 링크](https://www.youtube.com/watch?v=cVxqrGHxutU&ab_channel=OKKY)  
 [Slide](https://www.slideshare.net/OKJSP/okkycon-tdd)
