@@ -18,7 +18,7 @@ String에 연산이 많이 들어가는 경우, StringBuilder를 쓰는 경우�
 
 ## String Constant Pool
 : 기본적으로, String은 Primitive Type이 아닌, Reference Type이다.  
-즉, 우리가 바라보고 있는 어떤 String은, 그 자체로서 값을 갖고 있는 것이 아니고,  
+즉, 우리가 바라보고 있는 특정 String은 그 자체로서 값을 갖고 있는 것이 아니고,  
 그 값에 대한 **"포인터"** 인 셈이다.  
 이 포인터는 **Stack 영역**에서 관리된다.
 
@@ -64,11 +64,35 @@ s1과 s2는 같은 반면, s1과 s3는 다르다. 이에 더해, **s3와 s4 또�
 우리가 일반적으로 관리하는 클래스처럼, Heap 영역에 해당 String을 만들어버린다.  
 **위 코드의 s3와 s4는 같지 않다고 나온 이유가 이 때문이다.**
 
+따라서, 사람의 입장에서 "String이 같은가요?" 라고 물어보려면,
+equals() 함수를 사용해야 한다.
+
+equals() 함수를 따라가보면 다음과 같이 작성되어 있다.
+
+```java
+@HotSpotIntrinsicCandidate
+    public static boolean equals(byte[] value, byte[] other) {
+        if (value.length == other.length) {
+            for (int i = 0; i < value.length; i++) {
+                if (value[i] != other[i]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+```
+
+String을 initialize 하면, String은 byte[] 라는 배열로 값이 들어가므로,  
+비교하고자 하는 value 라는 byte 배열과, 그 대상인 byte[] other 를 하나씩 비교해가면서  
+**하나라도 다를 경우** false를 return한다.
+
 어찌되었든, Heap 영역에 String이 저장된다는 것은 알았다.  
 
 ## String as Immutable
 : Java에서의 String은 immutable(불변) 이라고 한다. 이게 도대체 무슨 뜻일까?  
-그렇다면, String에 값을 변경하면 어떻게 될까?
+바꿔 말해서, String에 값을 변경하면 어떻게 될까?
 
 다음의 코드를 보자.
 
@@ -101,8 +125,8 @@ public class Main {
 s2 가 s1 의 값을 가리키고 있으므로,  
 s2 또한 "helloworld" 가 되었을 것이다.
 
-그러나, 실제로는 기존의 s1이 가리키던 객체를 놔버리고,  
-world가 추가된 "helloworld" 객체를 새로 만들어서, 그곳을 가리키도록 했다.
+그러나, 실제로는 기존의 s1이 가리키던 객체를 **놔버리고**,  
+world가 추가된 "helloworld" 객체를 새로 만들어서, 그곳을 가리키게 된다.
 
 그렇기 때문에, 두 번째 `s1 == s2` 에서 false를 return 했다.  
 또한, s3는 new String으로 String pool 이 아닌 heap 영역에 할당되었기 때문에, 예상한대로 s1과 같지 않았다.  
@@ -112,6 +136,29 @@ world가 추가된 "helloworld" 객체를 새로 만들어서, 그곳을 가리�
 
 **바꿔 말하면, String은 Immutable 객체이기 때문에, 기존 객체의 값이 변경되지 않고**  
 **새로 만들어서 할당된다는 것을 알 수 있다.**
+
+
+---
+
+> Note. 찾다보니, int 같은 primitive type도 immutable인지에 대해서 찾아보았다.  
+> 잠깐 C에서의 예시를 가져와보면, C에서의 primitive data는 mutable 이다.  
+> ```C++
+> #include <stdio.h>
+> int main() {
+>    int i = 1;
+>    printf("%p\n", &i); // 0x7ffd1111f95c
+>
+>    i += 1;
+>    printf("%p\n", &i); // 0x7ffd1111f95c
+>}
+>```
+> 그런데, Java에서의 primitive는 immutable 이라고 한다.  
+> 자세한 내용은 [여기](https://stackoverflow.com/questions/18037082/are-java-primitives-immutable/18037544)를 참고하자.  
+> 누군가는 "Primitive는 mutable, immutable 자체를 따질 수 없다"고도 한다.  
+> 이 내용은 조금 더 찾아봐야 할 듯 싶다.
+
+---
+
 
 ## Heap ↔ String pool
 : 이렇게 보면 String pool은 무슨 신성불가침의 영역처럼 여겨질 수도 있는데,  
@@ -138,6 +185,8 @@ s2 또한, new String으로 만들어주는 방법으로, heap 영역에 할당�
 s3 에서 나타나는 intern()의 역할은,   
 **heap 영역에 있는 String을 String pool로 등록시켜준다.**
 
+이는 필요에 따라, 적절히 사용하면 된다.
+
 # String, StringBuilder, StringBuffer
 ## History
 
@@ -155,8 +204,7 @@ Before JDK 1.5, String에 덧셈을 한다는 것은 굉장히 비효율적인 �
 그런데, StringBuffer는 **모든 Public method가 동기화 되어야 한다는 단점**을 안고 있었다.   
 즉, multi-thread가 아닐 때에도, 울며겨자먹기로 StringBuffer를 쓸 수 밖에 없었다.
 
-효율적인 String의 연산을 위해서, StringBuiler가 JDK 1.5부터 등장하였다.  
-이와 더불어, String의 + 연산도 StringBuilder를 사용하도록 변경되었다.
+효율적인 String의 연산을 위해서, **StringBuiler**가 JDK 1.5부터 등장하였다.  
 
 이 StringBuilder와 StringBuffer는 Mutable이다.   
 역시, 다음의 코드를 보자.
@@ -179,10 +227,13 @@ public class Main {
 ```
 
 String이었다면 서로 다른 객체라고 false를 던졌을텐데,  
-StringBuilder는 mutable이기 때문에 서로 같다는 결과가 나타나는 것을 볼 수 있다.
+StringBuilder는 mutable이기 때문에 서로 같다는 결과가 나타나는 것을 볼 수 있다.  
+
+그렇다면, String 연산 시에는 String을 무조건 쓰면 안되는 것일까? 그렇지는 않다.  
+JDK 1.5 이후로, String의 + 연산도 StringBuilder를 사용하도록 변경되었다.
 
 ## Comparing 
-: 백문이 불여일견. 직접 코드로 테스트 해보자.
+: 백문이 불여일견. 정말 StringBuilder를 사용하는지 직접 코드로 속도 비교 테스트를 해보자.
 
 ```java
 public class Main {
@@ -268,7 +319,15 @@ for( int i = 0; i < 10000; i++ ) {
     out = new StringBuilder().append(out).append(i).toString();
 }
 return out;
-// 이렇게 쓰는거랑 똑같습니다. 그러므로, StringBuilder를 쓰세요.
+// 이렇게 쓰는거랑 똑같습니다. 그러므로, 그냥 StringBuilder를 쓰세요.
+
+
+StringBuilder out = new StringBuilder();
+for( int i = 0 ; i < 10000; i++ ) {
+    out.append(i);
+}
+return out.toString();
+// 이렇게
 ```
 
 결국 StringBuilder를 계속해서 만드는 꼴이므로,  
@@ -281,9 +340,17 @@ return out;
 |Storage|String Pool|Heap|Heap|
 |Modifiable|No(immutable)|Yes(mutable)|Yes(mutable)|
 |Thread safe|Yes(immutable이므로)|No|Yes|
-|Performance|Fast(compiled as StringBuilder)|Yes|(Relatively)Slow|
+|Performance|Fast(compiled as StringBuilder)|Fast|(Relatively)Slow|
+
+즉, 
+- String : 연산이 많지 않은 경우, thread-safe 를 원하는 경우.
+- StringBuilder : 연산이 많은 경우, thread 는 상관 없는 경우.
+- StringBuffer : 연산이 많은 경우, thread-safe 를 원하는 경우.
+
+가 되겠다.
 
 ### Reference
 - [Guide to Java String Constant Pool](https://www.javaguides.net/2018/07/guide-to-java-string-constant-pool.html)
 - [java String 풀(Pool)](http://egloos.zum.com/iilii/v/4427484)
 - [String, StringBuffer, StringBuilder의 차이점과 장단점은 뭔가요?](https://www.slipp.net/questions/271)
+- [Java: String concat vs StringBuilder - optimised, so what should I do?](https://stackoverflow.com/questions/14927630/java-string-concat-vs-stringbuilder-optimised-so-what-should-i-do)
