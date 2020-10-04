@@ -88,7 +88,7 @@ String을 initialize 하면, String은 byte[] 라는 배열로 값이 들어가�
 비교하고자 하는 value 라는 byte 배열과, 그 대상인 byte[] other 를 하나씩 비교해가면서  
 **하나라도 다를 경우** false를 return한다.
 
-어찌되었든, Heap 영역에 String이 저장된다는 것은 알았다.  
+어찌되었든, Heap 영역과, 그 안의 String Pool에 String이 저장된다는 것은 알았다.  
 
 ## String as Immutable
 : Java에서의 String은 immutable(불변) 이라고 한다. 이게 도대체 무슨 뜻일까?  
@@ -142,7 +142,7 @@ world가 추가된 "helloworld" 객체를 새로 만들어서, 그곳을 가리�
 
 > Note. 찾다보니, int 같은 primitive type도 immutable인지에 대해서 찾아보았다.  
 > 잠깐 C에서의 예시를 가져와보면, C에서의 primitive data는 mutable 이다.  
-> ```C++
+> ```c++
 > #include <stdio.h>
 > int main() {
 >    int i = 1;
@@ -150,7 +150,7 @@ world가 추가된 "helloworld" 객체를 새로 만들어서, 그곳을 가리�
 >
 >    i += 1;
 >    printf("%p\n", &i); // 0x7ffd1111f95c
->}
+> }
 >```
 > 그런데, Java에서의 primitive는 immutable 이라고 한다.  
 > 자세한 내용은 [여기](https://stackoverflow.com/questions/18037082/are-java-primitives-immutable/18037544)를 참고하자.  
