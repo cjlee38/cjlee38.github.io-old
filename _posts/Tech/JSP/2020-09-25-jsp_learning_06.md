@@ -151,7 +151,6 @@ hello world! <br/>
 <% } %>
 
 </html>
-
 ```
 
 ![JSP_sample](/assets/images/2020-09-25-17-36-48_2020-09-25-jsp_learning_06.md.png){: .alignCenter}
