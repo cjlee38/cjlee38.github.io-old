@@ -6,6 +6,12 @@ categories: []
 tags: 
 ---
 
+# 현우형
+webpack은 왜 필요한가
+cors
+개발자 포비
+node js 란 (https://medium.com/day34/node-js-%EB%85%B8%EB%93%9C%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%B4%EA%B3%A0-%EC%96%B4%EB%96%A0%ED%95%9C-%EA%B8%B0%EB%8A%A5%EB%93%A4%EC%9D%B4-%EC%9E%88%EB%8A%94%EA%B0%80-1-98e49e1100ab)
+
 # 깃허블로그
 1. 또한, 좌측 Navigation Bar가 고정되어 있어서, 카테고리가 늘어남에 따라 Size를조절해줘야 하는 문제가 생겼다 => scrollable and 접었다펴기
 2. 게시글이 늘어나면 Paging이 필요하다.
@@ -25,9 +31,24 @@ Connection Pool(DataSource를 통해 메번 데이터베이스와 연결하는 �
 # 자바
 java 제네릭
 java annotation
+(https://dzone.com/articles/how-annotations-work-java)
+(https://www.javatpoint.com/java-annotation)
+(https://stackoverflow.com/questions/15347136/is-a-python-decorator-the-same-as-java-annotation-or-java-with-aspects)
 
 jar war 차이(https://j-a-l.tistory.com/79)
 자바 GC(https://deveric.tistory.com/64?category=346694)
+
+static block
+static {
+    이렇게 쓰는것
+}
+
+VO란 무엇인가?
+https://woowacourse.github.io/javable/2020-06-11/value-object
+https://martinfowler.com/bliki/ValueObject.html
+
+optional이란?
+http://homoefficio.github.io/2019/10/03/Java-Optional-%EB%B0%94%EB%A5%B4%EA%B2%8C-%EC%93%B0%EA%B8%B0/
 
 # 파이썬
 파이썬 데코레이터
@@ -77,6 +98,7 @@ DI & IoC Container (https://yaboong.github.io/spring/2019/08/29/why-field-inject
 
 Autowired의 원리(https://www.youtube.com/watch?v=Od-WtriilwY&list=PLq8wAnVUcTFUHYMzoV2RoFoY2HDTKru3T&index=13&ab_channel=%EB%89%B4%EB%A0%89%EC%B2%98)
 
+스프링 쓰는 이유
 
 
 # 블록체인 시리즈
