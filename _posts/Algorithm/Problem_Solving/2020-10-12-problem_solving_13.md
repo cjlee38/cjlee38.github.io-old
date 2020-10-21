@@ -2,8 +2,10 @@
 layout: post
 title:  "# 프로그래머스[Lv.3] 최고의 집합 ( Java )"
 date:   2020-10-12 05:27:00 +0900
-categories: [Problem_Solving]
-tags: 
+categories: Problem-Solving
+tags: programmers
+author: cjlee
+cover: /assets/covers/problem-solving.png
 ---
 
 [문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12938)

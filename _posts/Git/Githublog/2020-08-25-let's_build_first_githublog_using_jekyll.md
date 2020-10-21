@@ -4,6 +4,8 @@ title:  "# Step by Step, Github(Jekyll) 블로그 제작기 (1) - 초기 생성"
 date:   2020-08-26 01:03:36 +0900
 categories: [Githublog]
 tags: [github]
+author: cjlee
+cover: /assets/covers/githublog.jpg
 ---
 
 # 0. 왜 깃허브인가?

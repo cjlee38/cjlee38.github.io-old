@@ -4,6 +4,8 @@ title:  "# Java Stream API 첫걸음"
 date:   2020-10-07 01:03:00 +0900
 categories: [Java]
 tags: 
+author: cjlee
+cover: /assets/covers/coding.png
 ---
 
 # 0. 들어가며

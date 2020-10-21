@@ -4,6 +4,8 @@ title:  "# (Java) 예외처리를 위한 Try-Catch"
 date:   2020-10-05 06:42:00 +0900
 categories: [Java]
 tags: 
+author: cjlee
+cover: /assets/covers/coding.png
 ---
 
 # 0. 들어가며
@@ -201,6 +203,25 @@ var1 이라는 byte 변수에 담아 놓은 뒤에, finally 이후에 return 되
 자기 자신을 **호출한** 메소드에게 "이거 처리해주세요" 하고 던진다.
 
 계속해서 stack을 타고 가다보면, 최종적으로는 main 메소드를 실행한 JVM 에게 던진다.
+
+다음의 코드의 흐름을 잘 살펴보면, 위 두 키워드의 차이에 대해서 알 수 있으리라 생각한다.
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        try {
+            myException();
+        } catch(IllegalStateException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    public static int myException() throws IllegalStateException {
+        throw new IllegalStateException("exception");
+    }
+}
+```
 
 
 # 4. try-with-resources

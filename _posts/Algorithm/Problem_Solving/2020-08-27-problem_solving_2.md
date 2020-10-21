@@ -1,9 +1,11 @@
 ---
 layout: post
-title:  "#백준[No.2477] - 참외밭 ( python )"
+title:  "# 백준[No.2477] - 참외밭 ( python )"
 date:   2020-08-23 22:41:00 +0900
-categories: [Problem_Solving]
-tags: 
+categories: Problem-Solving
+tags: baekjoon
+author: cjlee
+cover: /assets/covers/coding.png
 ---
 
 [문제 링크](https://www.acmicpc.net/problem/2477)

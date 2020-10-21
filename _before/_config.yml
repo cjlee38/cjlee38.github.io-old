@@ -1,0 +1,81 @@
+title: CJLEE'S CACHE
+author: ChanJoo Lee
+email: gptpem38@gmail.com
+description: > # this means to ignore newlines until "show_exerpts:"
+  DEV DIARY
+show_excerpts: false # set to true to show excerpts on the homepage
+
+# Minima date format
+# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
+sass:
+  sass_dir: _sass
+plainwhite:
+  name: CJLEE
+  tagline: "방구석 개발자"
+  #date_format: "%b %-d, %Y"
+  date_format: "%F [%a]"
+  sitemap: true # set to true to generate sitemap.xml content
+  search: true # set to true to enable searchbar
+  dark_mode: false # set to true to add dark mode toggle
+  portfolio_image: "assets/portfolio.png" # the path from the base directory of the site to the image to display (no / at the start)
+  html_lang: "en" # set the lang attribute of the <html> tag for the pages. See here for a list of codes: https://www.w3schools.com/tags/ref_country_codes.asp
+  
+  # generate social links in footer
+  social_links:
+    #twitter: samarsault
+    github:  cjlee38
+    #linkedIn: in/samarsault
+    #rss: rss
+    #dribbble: jekyll
+    #flickr:   jekyll
+    #instagram: jekyll
+    #pinterest: jekyll
+    #youtube: jekyll
+    #facebook: jekyll
+    #soundcloud: jekyll
+    #telegram: jekyll
+    #gitlab: jekyll
+
+    # Mastodon instances
+    # mastodon:
+    # - username: jekyll
+    #   instance: example.com
+    # - username: jekyll2
+    #   instance: example.com
+  
+  # customizing area --- 
+  analytics_id: "UA-174927148-1"
+  disqus_shortname: games2
+  navigation: 
+    - title: Diary
+    - title: Linux
+    - title: App
+      # children: [Flutter]
+    - title: Tech
+      children: [Web_Crawling, JSP, BTB]
+    - title: Data
+      children: [Data_Engineering, Data_Mining]
+    - title: Language
+      children: [Java, Python, Javascript]
+    - title: Algorithm
+      children: [Data_Structure, Problem_Solving]
+    - title: Git
+      children: [Githublog]
+# base_url: "/blog"
+
+
+# If you want to link only specific pages in your header, uncomment
+# this and add the path to the pages in order as they should show up
+# header_pages:
+# - about.md
+
+# Build settings
+theme: plainwhite
+remote_theme: samarsault/plainwhite-jekyll
+permalink: /:categories/:title
+# remote_theme: benbalter/retlab
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+#  - jekyll-feed

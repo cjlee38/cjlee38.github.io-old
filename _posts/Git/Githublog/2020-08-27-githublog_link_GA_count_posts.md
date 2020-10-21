@@ -4,6 +4,8 @@ title:  "# Step by Step, Github(Jekyll) 블로그 제작기 (2) - 구글애널�
 date:   2020-08-26 01:03:36 +0900
 categories: [Githublog]
 tags: [github]
+author: cjlee
+cover: /assets/covers/githublog.jpg
 ---
 
 # 0. 무엇을 할 것인가?

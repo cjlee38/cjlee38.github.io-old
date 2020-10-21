@@ -1,9 +1,11 @@
 ---
 layout: post
-title:  "#0 주피터 노트북 서버 열기"
+title:  "# 주피터 노트북 서버 열기"
 date:   2020-04-30 05:56:00 +0900
-categories: [Data_Mining]
+categories: Data-Mining
 tags: 
+author: cjlee
+cover: /assets/covers/data-mining.png
 ---
 
 # #0. 서버의 필요성

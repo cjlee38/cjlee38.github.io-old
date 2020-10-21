@@ -1,9 +1,11 @@
 ---
 layout: post
-title:  "#프로그래머스[Lv.2] - 오픈채팅방 ( java )"
+title:  "# 프로그래머스[Lv.2] - 오픈채팅방 ( java )"
 date:   2020-09-03 07:19:00 +0900
-categories: [Problem_Solving]
-tags: 
+categories: Problem-Solving
+tags: programmers
+author: cjlee
+cover: /assets/covers/coding.png
 ---
 
 [문제 링크](https://programmers.co.kr/learn/courses/30/lessons/42888)

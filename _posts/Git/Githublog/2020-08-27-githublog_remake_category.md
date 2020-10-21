@@ -4,6 +4,8 @@ title:  "# Step by Step, Github(Jekyll) 블로그 제작기 (4) - 카테고리 R
 date:   2020-08-29 19:16:00 +0900
 categories: [Githublog]
 tags: 
+author: cjlee
+cover: /assets/covers/githublog.jpg
 ---
 
 # 1. 무엇을 할 것인가?

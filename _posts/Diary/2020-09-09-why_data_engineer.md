@@ -4,6 +4,8 @@ title:  "# 왜 나는 데이터 엔지니어를 바라보는가"
 date: 2020-09-09 08:28:36 +0900
 categories: Diary
 tags: 
+author: cjlee
+cover: /assets/covers/diary.jpg
 ---
 
 # 들어가며

@@ -4,6 +4,8 @@ title:  "# Expression과 Statement의 차이 ( feat. Python, Java )"
 date:   2020-09-25 00:12:00 +0900
 categories: [BTB]
 tags: 
+author: cjlee
+cover: /assets/covers/coding.png
 ---
 
 # 0. 들어가며

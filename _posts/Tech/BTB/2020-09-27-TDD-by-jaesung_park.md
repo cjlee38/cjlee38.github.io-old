@@ -4,6 +4,8 @@ title:  "# 박재성 - 의식적인 연습으로 TDD, 리팩토링 연습하기"
 date:   2020-09-27 21:31:00 +0900
 categories: [BTB]
 tags: 
+author: cjlee
+cover: /assets/covers/coding.png
 ---
 
 ---

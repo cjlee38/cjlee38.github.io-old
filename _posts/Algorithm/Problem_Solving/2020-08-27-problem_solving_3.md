@@ -1,9 +1,11 @@
 ---
 layout: post
-title:  "#백준[No.1748] - 수 이어 쓰기 1 ( Python )"
+title:  "# 백준[No.1748] - 수 이어 쓰기 1 ( Python )"
 date:   2020-08-23 23:58:00 +0900
-categories: [Problem_Solving]
-tags: 
+categories: Problem-Solving
+tags: baekjoon
+author: cjlee
+cover: /assets/covers/coding.png
 ---
 
 [문제 링크](https://www.acmicpc.net/problem/1748)

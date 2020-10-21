@@ -2,8 +2,10 @@
 layout: post
 title:  "# 백준[No.2457] - 공주님의 정원 ( Java )"
 date:   2020-09-04 08:38:00 +0900
-categories: [Problem_Solving]
-tags: 
+categories: Problem-Solving
+tags: programmers
+author: cjlee
+cover: /assets/covers/coding.png
 ---
 
 [문제 링크](https://www.acmicpc.net/problem/2457)

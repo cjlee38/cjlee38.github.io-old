@@ -1,9 +1,11 @@
 ---
 layout: post
-title:  "#프로그래머스[Lv.2] - 튜플 ( java )"
+title:  "# 프로그래머스[Lv.2] - 튜플 ( java )"
 date:   2020-09-07 01:51:00 +0900
-categories: [Problem_Solving]
-tags: 
+categories: Problem-Solving
+tags: programmers
+author: cjlee
+cover: /assets/covers/coding.png
 ---
 
 [문제 링크](https://programmers.co.kr/learn/courses/30/lessons/64065)

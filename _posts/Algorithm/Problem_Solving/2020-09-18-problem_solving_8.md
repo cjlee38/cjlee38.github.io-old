@@ -2,8 +2,10 @@
 layout: post
 title:  "# 백준[No.17140] - 이차원 배열과 연산 ( Java )"
 date:   2020-09-18 20:12:00 +0900
-categories: [Problem_Solving]
-tags: 
+categories: Problem-Solving
+tags: baekjoon
+author: cjlee
+cover: /assets/covers/coding.png
 ---
 
 [문제 링크](https://www.acmicpc.net/problem/17140)

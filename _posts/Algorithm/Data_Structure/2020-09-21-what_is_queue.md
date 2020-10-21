@@ -2,8 +2,10 @@
 layout: post
 title:  "# 마음으로 이해하는 자료구조 : Queue ( feat. C )"
 date:   2020-09-21 19:38:00 +0900
-categories: [Data_Structure]
+categories: Data-Structure
 tags: 
+author: cjlee
+cover: /assets/covers/data-structure.jpg
 ---
 
 # 0. 들어가며

@@ -4,6 +4,8 @@ title:  "# 6. JSP 학습기록 - doGet, doPost와 JSP, 그리고 EL(Expression L
 date:   2020-09-25 16:21:00 +0900
 categories: [JSP]
 tags: 
+author: cjlee
+cover: /assets/covers/coding.png
 ---
 
 

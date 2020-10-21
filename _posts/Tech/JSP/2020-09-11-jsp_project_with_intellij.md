@@ -4,6 +4,8 @@ title:  "# 0. JSP 학습기록 - Intellij JSP 프로젝트 생성"
 date:   2020-09-11 16:45:00 +0900
 categories: [JSP]
 tags: 
+author: cjlee
+cover: /assets/covers/coding.png
 ---
 
 # Prerequisite

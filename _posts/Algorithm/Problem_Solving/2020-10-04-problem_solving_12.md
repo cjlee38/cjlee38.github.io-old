@@ -2,8 +2,10 @@
 layout: post
 title:  "# 프로그래머스[Lv.3] 단속카메라 ( Java )"
 date:   2020-10-04 22:11:00 +0900
-categories: [Problem_Solving]
-tags: 
+categories: Problem-Solving
+tags: programmers
+author: cjlee
+cover: /assets/covers/problem-solving.png
 ---
 
 # Problem

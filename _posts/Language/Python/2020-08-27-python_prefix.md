@@ -4,6 +4,8 @@ title:  "# Python string prefix에 관하여"
 date:   2020-08-08 01:47:00 +0900
 categories: [Python]
 tags: 
+author: cjlee
+cover: /assets/covers/coding.png
 ---
 # 0. 서론
 : 데이터 수집 모듈을 작성했던 인턴쉽 과정 동안, 파이썬을 많이 애용했다. 초기 작성은 그럭저럭 잘 되가나 싶었는데, 가장 해결하기 힘들었던 문제 두가지를 꼽자면, 비동기와 인코딩이 되겠다.

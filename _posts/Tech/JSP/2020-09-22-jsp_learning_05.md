@@ -4,6 +4,8 @@ title:  "# 5. JSP 학습기록 - Array 와 Application, Session, Cookie"
 date:   2020-09-22 17:26:00 +0900
 categories: [JSP]
 tags: 
+author: cjlee
+cover: /assets/covers/coding.png
 ---
 
 # 배열 다루기.
