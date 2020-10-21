@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: http://cjlee38.github.io/sitemap.xml
