@@ -2,7 +2,7 @@
 layout: post
 title:  "# 프로그래머스[Lv.1] - 크레인 인형 뽑기 ( python )"
 date:   2020-08-08 20:58:00 +0900
-categories: Problem-Solving
+categories: problem-solving
 tags: programmers
 author: cjlee
 cover: /assets/covers/coding.png

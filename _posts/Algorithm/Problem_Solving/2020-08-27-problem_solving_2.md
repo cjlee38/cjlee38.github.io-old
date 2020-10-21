@@ -2,7 +2,7 @@
 layout: post
 title:  "# 백준[No.2477] - 참외밭 ( python )"
 date:   2020-08-23 22:41:00 +0900
-categories: Problem-Solving
+categories: problem-solving
 tags: baekjoon
 author: cjlee
 cover: /assets/covers/coding.png

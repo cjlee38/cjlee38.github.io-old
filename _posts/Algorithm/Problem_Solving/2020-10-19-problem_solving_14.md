@@ -2,7 +2,7 @@
 layout: post
 title:  "# 프로그래머스[Lv.2] 숫자의 표현 ( Java )"
 date:   2020-10-19 19:45:00 +0900
-categories: Problem-Solving
+categories: problem-solving
 tags: programmers
 author: cjlee
 cover: /assets/covers/problem-solving.png

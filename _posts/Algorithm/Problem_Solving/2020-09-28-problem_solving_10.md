@@ -2,7 +2,7 @@
 layout: post
 title:  "# 백준[No.17144] - 미세먼지 안녕! ( Java )"
 date:   2020-09-28 21:00:00 +0900
-categories: Problem-Solving
+categories: problem-solving
 tags: baekjoon
 author: cjlee
 cover: /assets/covers/coding.png

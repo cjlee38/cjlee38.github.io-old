@@ -2,7 +2,7 @@
 layout: post
 title:  "# 백준[No.17140] - 이차원 배열과 연산 ( Java )"
 date:   2020-09-18 20:12:00 +0900
-categories: Problem-Solving
+categories: problem-solving
 tags: baekjoon
 author: cjlee
 cover: /assets/covers/coding.png

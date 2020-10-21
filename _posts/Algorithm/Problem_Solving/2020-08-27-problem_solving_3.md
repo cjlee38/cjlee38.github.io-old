@@ -2,7 +2,7 @@
 layout: post
 title:  "# 백준[No.1748] - 수 이어 쓰기 1 ( Python )"
 date:   2020-08-23 23:58:00 +0900
-categories: Problem-Solving
+categories: problem-solving
 tags: baekjoon
 author: cjlee
 cover: /assets/covers/coding.png

@@ -2,7 +2,7 @@
 layout: post
 title:  "# 프로그래머스[Lv.2] - 카펫 ( java )"
 date:   2020-09-23 22:12:00 +0900
-categories: Problem-Solving
+categories: problem-solving
 tags: programmers
 author: cjlee
 cover: /assets/covers/coding.png

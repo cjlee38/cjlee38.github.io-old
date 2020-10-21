@@ -2,7 +2,7 @@
 layout: post
 title:  "# 프로그래머스[Lv.2] - 올바른 괄호 ( java )"
 date:   2020-08-29 17:16:00 +0900
-categories: Problem-Solving
+categories: problem-solving
 tags: programmers
 author: cjlee
 cover: /assets/covers/coding.png

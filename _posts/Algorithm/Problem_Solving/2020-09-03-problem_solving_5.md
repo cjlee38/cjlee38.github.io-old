@@ -2,7 +2,7 @@
 layout: post
 title:  "# 프로그래머스[Lv.2] - 오픈채팅방 ( java )"
 date:   2020-09-03 07:19:00 +0900
-categories: Problem-Solving
+categories: problem-solving
 tags: programmers
 author: cjlee
 cover: /assets/covers/coding.png
