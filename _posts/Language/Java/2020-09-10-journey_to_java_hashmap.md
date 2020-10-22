@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "# Java HashMap 으로의 여행"
+title:  "# (Java) HashMap 으로의 여행"
 date:   2020-09-10 14:54:36 +0900
 categories: [Java]
 tags:

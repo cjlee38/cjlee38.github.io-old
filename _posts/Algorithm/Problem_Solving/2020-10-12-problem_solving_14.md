@@ -55,7 +55,7 @@ cover: /assets/covers/problem-solving.png
 
 그중 각 원소의 곱이 최대인 { 4, 4 }가 최고의 집합입니다.
 
-# Answer
+# Solve
 
 ## 접근 방법
 : 직관적으로도 알 수 있는 내용인데,  
