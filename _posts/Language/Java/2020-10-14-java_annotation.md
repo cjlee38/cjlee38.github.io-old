@@ -13,7 +13,7 @@ cover: /assets/covers/coding.png
 다양한 글을 읽었는데도, Java의 Annotation은 뭐라 딱 찝어서 설명하기 어려운 것 같다.  
 더욱이, 나는 **'@'** 표시에 대해서, Python의 Decorator로 먼저 이해했기 때문에 더욱 어려웠던 것 같다.
 
-Python의 Decorator는 마치 함수를 감싸는 함수의 역할과 같은 기능을 하지만,  
+Python의 Decorator는 마치 함수를 감싸는 함수의 역할과 같은 모습을 볼 수 있지만,  
 Java의 Annotation은 그냥 **Meta data** 로 퉁쳐버리기 때문에,  
 *"정말 그게 다야? 뭐 더 없어? 아닐 것 같은데?"* 싶은 생각이 계속 들어서 이해하기 어려웠다.
 
@@ -169,8 +169,8 @@ public enum RetentionPolicy {
 ```
 
 - Source : 컴파일러에 의해 버려진다.
-- 컴파일러에 의해 클래스파일에 남아있지만, 런타임시에는 유지되지 않는다.
-- 컴파일러에 의해 클래스파일에 남아있고, 런타임 시에도 남아있다.
+- Class : 컴파일러에 의해 클래스파일에 남아있지만, 런타임시에는 유지되지 않는다.
+- RUNTIME : 컴파일러에 의해 클래스파일에 남아있고, 런타임 시에도 남아있다.
 
 # 4. 가볍게 Custom Annotation 만들어보기.
 : 위에서 본 내용을 바탕으로, Custom Annotation을 만들어보자.
@@ -212,9 +212,13 @@ class MyClass {
 
 `MyAnnotation` 이라는 Annotation을 만들었다.  
 이 때, **Retention은 RUNTIME**, **Target은 클래스와 Field**에 붙일 수 있도록 했다.  
-`MyClass` 클래스에 1이라는 value를, `MyField`는 10을 붙였다.  
+그리고 `MyClass` 클래스에 1이라는 value를, `MyField`는 10을 붙였다.  
+여기서 주의할 것은, value 라는 것은 meta data의 일부이지,  
+value를 가져야만 meta data를 가질 수 있는 것은 아니다.  
+다시 말해, value가 없어도 된다.
 
 만약, Constructor에 MyAnnotation을 붙이려고 하면   
+Target이 Class와 Field에만 붙일 수 있도록 했기 때문에  
 `'@MyAnnotation' not applicable to constructor` 라고 에러를 뱉는다.
 
 위와 같이 코드를 작성하고 main method를 실행하면, 결과는 다음과 같다.
