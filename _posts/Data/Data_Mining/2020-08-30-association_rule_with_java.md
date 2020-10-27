@@ -2,7 +2,7 @@
 layout: post
 title:  "# Java로 구현하는 연관규칙분석(Association Rule) ( feat. Apriori Algorithm )"
 date:   2020-08-30 22:31:00 +0900
-categories: Data-Mining
+categories: data-mining
 tags: 
 author: cjlee
 cover: /assets/covers/data-mining.png

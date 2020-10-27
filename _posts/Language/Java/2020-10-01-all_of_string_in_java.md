@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "# 추석맞이 String 종합선물세트 ( Java맛 )"
+title:  "# (Java) 추석맞이 String 종합선물세트"
 date:   2020-10-01 16:59:00 +0900
 categories: [Java]
 tags:
