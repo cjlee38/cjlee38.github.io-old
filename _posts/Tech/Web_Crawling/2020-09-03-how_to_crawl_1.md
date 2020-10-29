@@ -2,7 +2,7 @@
 layout: post
 title:  "# Step by Step, Web crawling 학습하기 (1) - OpenAPI 이용하기"
 date:   2020-09-03 02:49:00 +0900
-categories: Web-Crawling
+categories: web-crawling
 tags: 
 author: cjlee
 cover: /assets/covers/web-crawling.jpg

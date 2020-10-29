@@ -2,7 +2,7 @@
 layout: post
 title:  "# 1. JSP 학습기록 - 기본 개념과 Tomcat 실행해보기."
 date:   2020-09-17 11:48:00 +0900
-categories: [JSP]
+categories: jsp
 tags: 
 author: cjlee
 cover: /assets/covers/coding.png

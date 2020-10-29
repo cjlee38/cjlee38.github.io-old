@@ -2,7 +2,7 @@
 layout: post
 title:  "# Step by Step, Web crawling 학습하기 (0) - 이것 만큼은 알고 가자"
 date:   2020-09-03 02:00:00 +0900
-categories: Web-Crawling
+categories: web-crawling
 tags: 
 author: cjlee
 cover: /assets/covers/web-crawling.jpg

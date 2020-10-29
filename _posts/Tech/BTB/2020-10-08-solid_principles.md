@@ -2,7 +2,7 @@
 layout: post
 title:  "# 객체지향 설계원칙 - SOLID(번역)"
 date:   2020-10-08 12:35:00 +0900
-categories: [BTB]
+categories: btb
 tags: 
 author: cjlee
 cover: /assets/covers/coding.png

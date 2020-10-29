@@ -2,7 +2,7 @@
 layout: post
 title:  "# 만자로 리눅스 설치"
 date:   2020-02-23 03:54:00 +0900
-categories: [Linux]
+categories: linux
 tags: 
 ---
 # **0. 계기**  

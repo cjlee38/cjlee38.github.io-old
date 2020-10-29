@@ -28,6 +28,7 @@ main method가 없는데 어떻게 실행되지? 라는 의문에 봉착했다.
 
 백문이 불여일견. main 의 이름을 init으로 바꿔보고, 실행해보았다.
 
+**코드**
 ```java
 public class Main {
 
@@ -38,6 +39,7 @@ public class Main {
 }
 ```
 
+**실행결과**
 ```bash
 java Main.java
 error: can't find main(String[]) method in class: com.company.Main
@@ -140,14 +142,14 @@ public으로 선언해줘야 한다.
 ### void
 : void는 딱히 특별할 것이 없는 것 같다.   
 void가 아니라면, 우리가 프로그램을 종료할 때에, 어떤 값을 반환하겠다는 의미인데,  
-이 값을 누가 받는가? 그리고 그 값이, 무슨 의미를 갖는가?  
+이 값을 받는 JVM이 무슨 역할을 할까?
 
-Java의 개발자가 아닌 사용자는, 아마 그 누구도 이에 대해서 답변할 수 없을 것이라 생각한다.
+Java의 개발자가 아닌 사용자는, 이에 대해서 쉽게 답변할 수 없을 것 같다.
 
 --- 
 
 > Note. 사실 의문점이 남는 부분이 하나 있는데, 가장 처음 배웠던 C언어를 생각해보면, main() 함수를 void main() 이 아닌 int main()으로 사용했고, void main()을 사용하더라도 컴파일러에 의해 int main()으로 변환된다는 이야기를 들었다. 그리고, 이 때 return 되는 값은 기본적으로 0 인데, 이는 "정상적으로 종료되었다" 를 의미한다. 그리고 이 결과값을 받는 것은 Shell 프로그램이고, 이 Shell 이 받는 결과값에 따라서 또 행동이 달라질 수 있다.  
-> 그러나, Java에서는 그저 void로, 아무것도 return하지 않는다. Java 개발자인 제임스 고슬링의 철학을 알 수 있는 도리가 없으니, 아쉽지만 여기서 멈춰야한다.
+> 그러나, Java에서는 그저 void로, 아무것도 return하지 않는다. 즉, 결과에 관계 없이, JVM은 언제나 같은 동작만을 수행한다고 예측할 수 있다. 이러한 차이에 대해서, Java 개발자인 제임스 고슬링의 철학을 알 수 있는 도리가 없으니, 아쉽지만 여기서 멈춰야한다.
 
 ---
 
@@ -206,7 +208,7 @@ Main 클래스와 테스트 클래스를 각각 돌려서,
 "C:\Program Files\Java\jdk-11.0.8\bin\java.exe" -ea -Didea.test.cyclic.buffer.size=1048576 "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.1\lib\idea_rt.jar=2288:C:\Program Files\JetBrains\IntelliJ IDEA 2020.2.1\bin" -Dfile.encoding=UTF-8 -classpath "어어엄청나게 많은 라이브러리들" com.intellij.rt.junit.JUnitStarter -ideVersion5 -junit5 com.company.myTest
 ```
 
-*(테스트를 사용하는 프로젝트와, Java 연습용으로 사용하는 프로젝트의 JDK 버전을 다르게 설정해놓았다.)*
+*(테스트를 사용하는 프로젝트와, Java 연습용으로 사용하는 프로젝트의 JDK 버전을 다르게 설정해놓았는데, 여기서는 특별한 의미는 없다.)*
 
 우리가 cmd 창을 열어서, `java Main.java`라는 명령어를 입력하듯이,  
 IDE의 run 버튼은 위와 같은 정말 **길고도 긴 명령어**를 한방에 딱 입력해준다.
@@ -253,7 +255,7 @@ public static void main(String[] args) {
 Junit이 동작하는 방식에 대해서도 코드로 살짝 훑어봤는데,  
 어렵기도 하고, 여기에 또 쓰기에는 양이 정말 많아질 것 같아서, 이쯤 해야 할 것 같다.
 
-이상으로 포스팅을 마칩니다. 틀린 부분이 있으면, 지적 바랍니다.
+이상으로 포스팅을 마칩니다. 틀린 부분이 있으면 지적 바랍니다.
 
 
 ## Reference

@@ -2,7 +2,7 @@
 layout: post
 title:  "# 3. JSP 학습기록 - Servlet을 이용한 입출력"
 date:   2020-09-21 15:22:00 +0900
-categories: [JSP]
+categories: jsp
 tags: 
 author: cjlee
 cover: /assets/covers/coding.png

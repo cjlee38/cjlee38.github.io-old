@@ -2,7 +2,7 @@
 layout: post
 title:  "# (Java) 추석맞이 String 종합선물세트"
 date:   2020-10-01 16:59:00 +0900
-categories: [Java]
+categories: java
 tags:
 author: cjlee
 cover: /assets/covers/coding.png

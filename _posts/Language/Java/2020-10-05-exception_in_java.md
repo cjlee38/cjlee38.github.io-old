@@ -2,7 +2,7 @@
 layout: post
 title:  "# (Java) 예외처리를 위한 Try-Catch"
 date:   2020-10-05 06:42:00 +0900
-categories: [Java]
+categories: java
 tags: 
 author: cjlee
 cover: /assets/covers/coding.png

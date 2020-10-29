@@ -2,7 +2,7 @@
 layout: post
 title:  "# 2. JSP 학습기록 - Tomcat 구조 파악부터 Servlet 만들기까지"
 date:   2020-09-17 11:48:00 +0900
-categories: [JSP]
+categories: jsp
 tags: 
 author: cjlee
 cover: /assets/covers/coding.png

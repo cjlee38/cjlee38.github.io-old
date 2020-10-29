@@ -2,7 +2,7 @@
 layout: post
 title:  "# Hash 맛보기"
 date:   2020-09-25 22:52:00 +0900
-categories: [BTB]
+categories: btb
 tags: 
 author: cjlee
 cover: /assets/covers/coding.png

@@ -2,7 +2,7 @@
 layout: post
 title:  "# (Java) Stream API 첫걸음"
 date:   2020-10-07 01:03:00 +0900
-categories: [Java]
+categories: java
 tags: 
 author: cjlee
 cover: /assets/covers/coding.png

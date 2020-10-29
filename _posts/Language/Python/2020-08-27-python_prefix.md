@@ -2,7 +2,7 @@
 layout: post
 title:  "# Python string prefix에 관하여"
 date:   2020-08-08 01:47:00 +0900
-categories: [Python]
+categories: python
 tags: 
 author: cjlee
 cover: /assets/covers/coding.png

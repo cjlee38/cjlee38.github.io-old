@@ -2,7 +2,7 @@
 layout: post
 title:  "# Step by Step, Github(Jekyll) 블로그 제작기 (2) - 구글애널리틱스, 게시글 개수"
 date:   2020-08-26 01:03:36 +0900
-categories: [Githublog]
+categories: githublog
 tags: [github]
 author: cjlee
 cover: /assets/covers/githublog.jpg

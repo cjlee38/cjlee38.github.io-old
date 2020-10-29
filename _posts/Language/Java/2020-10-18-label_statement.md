@@ -2,7 +2,7 @@
 layout: post
 title:  "# (Java) 효율적인 반복문 탈출을 위한 Label"
 date:   2020-10-18 14:22:00 +0900
-categories: [Java]
+categories: java
 tags: 
 author: cjlee
 cover: /assets/covers/coding.png

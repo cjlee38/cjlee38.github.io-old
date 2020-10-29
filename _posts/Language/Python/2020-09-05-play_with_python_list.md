@@ -2,7 +2,7 @@
 layout: post
 title:  "# Python list 다뤄보기 ( a.k.a. 잡기술 )"
 date:   2020-09-05 00:35:00 +0900
-categories: [Python]
+categories: python
 tags: 
 author: cjlee
 cover: /assets/covers/coding.png

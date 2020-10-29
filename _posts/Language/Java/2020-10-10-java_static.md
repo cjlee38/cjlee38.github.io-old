@@ -2,7 +2,7 @@
 layout: post
 title:  "# (Java) Static Field, Method, 그리고 Block"
 date:   2020-10-10 20:41:00 +0900
-categories: [Java]
+categories: java
 tags: 
 author: cjlee
 cover: /assets/covers/coding.png

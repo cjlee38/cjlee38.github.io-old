@@ -2,7 +2,7 @@
 layout: post
 title:  "# 4. JSP 학습기록 - POST handling과 Servlet Filter"
 date:   2020-09-21 15:22:00 +0900
-categories: [JSP]
+categories: jsp
 tags: 
 author: cjlee
 cover: /assets/covers/coding.png

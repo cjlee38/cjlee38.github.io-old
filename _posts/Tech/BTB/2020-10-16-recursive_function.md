@@ -2,7 +2,7 @@
 layout: post
 title:  "# 재귀함수 주무르기 with 피보나치 수열 ( feat. Java )"
 date:   2020-10-16 05:44:00 +0900
-categories: [BTB]
+categories: btb
 tags: 
 author: cjlee
 cover: /assets/covers/coding.png

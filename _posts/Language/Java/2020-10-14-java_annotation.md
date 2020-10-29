@@ -2,7 +2,7 @@
 layout: post
 title:  "# (Java) Annotation에 대한 이해"
 date:   2020-10-14 21:11:00 +0900
-categories: [Java]
+categories: java
 tags: 
 author: cjlee
 cover: /assets/covers/coding.png

@@ -2,7 +2,7 @@
 layout: post
 title:  "# 7. JSP 학습기록 - MVC 패턴과 JSP Model 1, Model 2"
 date:   2020-10-06 22:21:00 +0900
-categories: [JSP]
+categories: jsp
 tags: 
 author: cjlee
 cover: /assets/covers/coding.png

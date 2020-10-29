@@ -2,7 +2,7 @@
 layout: post
 title:  "# 만자로 기본 설정"
 date:   2020-03-09 21:24:00 +0900
-categories: [Linux]
+categories: linux
 tags: 
 ---
 

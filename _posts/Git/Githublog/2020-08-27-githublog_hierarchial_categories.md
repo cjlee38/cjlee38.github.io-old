@@ -2,7 +2,7 @@
 layout: post
 title:  "# Step by Step, Github(Jekyll) 블로그 제작기 (3) - 카테고리, 계층 카테고리"
 date:   2020-08-27 06:16:00 +0900
-categories: [Githublog]
+categories: githublog
 tags: 
 author: cjlee
 cover: /assets/covers/githublog.jpg

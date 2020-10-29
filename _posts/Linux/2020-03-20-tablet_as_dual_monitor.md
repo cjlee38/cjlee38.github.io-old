@@ -2,7 +2,7 @@
 layout: post
 title:  "# 다시 우분투로, 그리고 태블릿을 듀얼 모니터로 활용하기"
 date:   2020-03-20 05:37:00 +0900
-categories: [Linux]
+categories: linux
 tags: 
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title:  "# Step by Step, Github(Jekyll) 블로그 제작기 (4) - 카테고리 Remake"
 date:   2020-08-29 19:16:00 +0900
-categories: [Githublog]
+categories: githublog
 tags: 
 author: cjlee
 cover: /assets/covers/githublog.jpg
