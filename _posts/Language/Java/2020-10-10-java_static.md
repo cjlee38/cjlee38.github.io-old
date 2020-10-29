@@ -67,6 +67,7 @@ b2.set반죽("혁신");
 벌써부터 끔찍하다.
 
 하지만, 반죽 앞에 static 이라는 키워드를 붙일 수 있다.  
+(`private String 반죽` -> `static String 반죽`)  
 이 때, 생성자와 Setter에 다음과 같은 Warning이 나온다.
 
 `Static member 'com.company.붕어빵.반죽' accessed via instance reference `
@@ -75,7 +76,7 @@ b2.set반죽("혁신");
 
 ```java
 public 붕어빵(String 반죽, String 속재료, String 크기) {
-    붕어빵.반죽 = 반죽;
+    붕어빵.반죽 = 반죽; // 혹은 
     this.속재료 = 속재료;
     this.크기 = 크기;
 }
@@ -118,6 +119,7 @@ b2를 통해서 `set반죽()` 메소드를 호출하는 것이 어울릴까?
 이렇게 사용할 수 있는 이유는, println() 이라는 메소드가 static method 이었기 때문이다.
 
 따라서, `set반죽()` 메소드 또한 static으로 바꾸어서,  
+(`public void set반죽()` -> `public static void set반죽()`)  
 **클래스로 접근해 사용할 수 있도록 만들면 좋겠다**는 생각이 든다.
 
 `b2.set반죽("혁신");` 을 `붕어빵.set반죽("혁신");` 로 바꿔서 실행해보자.
@@ -155,7 +157,7 @@ public class Main {
 
 그러나, 지금 코드는 붕어빵이 있어야, 그제서야 붕어빵의 반죽이 결정되는 꼴과 다름없다.
 
-잠깐의 테스트를 위해, `반죽` 변수를 public으로 바꾸고,   
+잠깐의 테스트를 위해, `반죽` 변수의 접근제어자를 public으로 바꾸고,   
 `System.out.println(붕어빵.반죽)`을 가장 먼저 호출해보면,  
 null이 return 되는 것을 볼 수 있다.  
 이를, `"기본"` 이라는 문자열로 초기화 될 수 있도록 해보자.

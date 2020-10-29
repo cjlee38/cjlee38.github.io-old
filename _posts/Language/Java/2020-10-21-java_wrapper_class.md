@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "# Java의 Wrapper Class는 Call by Value 일까?"
+title:  "# (Java) Wrapper Class는 Call by Value 일까?"
 date:   2020-10-21 20:26:00 +0900
 categories: java
 tags: 
@@ -11,7 +11,7 @@ cover: /assets/covers/coding.png
 # 0. 들어가며
 : Java 는 Call by Value일까, Call by Reference 일까?   
 
-왜냐하면, 함수의 parameter로 primitive type을 넘겨줄 때에는 call by value,  
+지금까지는, 함수의 parameter로 primitive type을 넘겨줄 때에는 call by value,  
 객체를 넘겨줄 때에는 call by reference로 알고 있었다.
 
 그런데, 구선생님의 말씀에 따르면, 그렇지는 않은 것 같다.
@@ -236,7 +236,8 @@ public static Integer valueOf(int i) {
 }
 ```
 
-보는 바와 같이, 새로운 Integer 객체를 생성해서, 이를 return 하고 있음을 볼 수 있다.
+따라서, `autoboxing`은 내부적으로 컴파일러가 `valueOf()` 메소드를 호출했고,   
+이에 따라 새로운 Integer 객체를 생성해서, 이를 return 하고 있음을 볼 수 있다.
 
 그렇다면, 덧셈은 어떻게 동작할까?
 
@@ -309,7 +310,7 @@ integerValue = integerValue + 1;
 > ```java
 > Integer value = 10;
 > System.out.println("value.getClass() = " + value.getClass());
-> System.out.println("value+1.getClass() = " + (value+1).getClass());
+> System.out.println("(value+1).getClass() = " + (value+1).getClass());
 > ```
 > 당연하게도, (value+1)은 unboxing된 int형이므로,   
 > getClass()라는 메소드가 없다는 에러를 뱉는다.
