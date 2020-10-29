@@ -206,7 +206,7 @@ private final int value;
 그렇다면, 아까 작성했던 `value = value + 1` 은 어떻게 동작했을까?  
 
 Wrapper class에 대해서 배웠다면, `autoboxing`, `unboxing` 이라는 용어에 대해서 들어봤을 것이다.  
-이 `boxing`이 어떻게 일어나는지, 바이트 코드를 들여다보자.1
+이 `boxing`이 어떻게 일어나는지, 바이트 코드를 들여다보자.
 
 ```java
 public static void main(String[] args) {
@@ -267,8 +267,8 @@ public static void main(String[] args) {
 그 결과인 Integer 객체를 지역변수 Array의 1번에 할당했다.
 
 6 번에서, 만들었던 이 Integer 객체를 꺼내왔고,  
-7 번에서, intValue()라는 메소드를 호출했다.    
-참고로 intValue()는 다음과 같이 생겼다.
+7 번에서, `intValue()`라는 메소드를 호출했다.    
+참고로 `intValue()`는 다음과 같이 생겼다.
 
 ```java
 public int intValue() {
@@ -287,11 +287,11 @@ public int intValue() {
 11번에서 이 두개를 더한다(`iadd`)
 
 그리고, 다시 `Integer.valueOf()` 의 static method를 실행해서,  
-다시 Integer 객체로 만들고,  이를 다시 지역변수 Array의 1번에 저장한다.
+다시 Integer 객체로 만들고, 이를 다시 지역변수 Array의 1번에 저장한다.
 
 와우, 긴 여정이 끝났다. 정리하면 다음과 같다. 
 
-Integer 덧셈코드
+(Integer 덧셈코드)
 ```java
 Integer integerValue = 10;
 integerValue = integerValue + 1;
@@ -302,8 +302,22 @@ integerValue = integerValue + 1;
 3. unboxing 된 int 값에, 1을 더한다.
 4. 더한 결과(11)를 다시 boxing 하고, 저장한다.
 
-이러한 연산을, 아까 수행한 `integerMethod()`에 대입해서 생각해보자.  
-다시 스크롤해서 올려보기 귀찮으니, 코드를 여기에 다시 적겠다.
+--- 
+
+> Note. 이런 동작방식을 증명하는 또 다른 방법은,   
+> 다음과 같은 코드를 실행해보는 것이다.
+> ```java
+> Integer value = 10;
+> System.out.println("value.getClass() = " + value.getClass());
+> System.out.println("value+1.getClass() = " + (value+1).getClass());
+> ```
+> 당연하게도, (value+1)은 unboxing된 int형이므로,   
+> getClass()라는 메소드가 없다는 에러를 뱉는다.
+
+---
+
+이 과정을, 아까 수행한 `integerMethod()`에 대입해서 생각해보자.  
+다시 스크롤해서 올려보기 귀찮을테니, 코드를 여기에 다시 적겠다.
 
 ```java
 public static void integerMethod(Integer value) {
@@ -317,7 +331,7 @@ public static void integerMethod(Integer value) {
 
 그러나, 방금 정리했듯이,   
 **더한 결과를 다시 Boxing하므로**  
-다시 말해, **새로운 new Integer() 객체를 생성하므로,**
+다시 말해, **새로운 new Integer() 객체를 생성하므로,**  
 덧셈을 하고나면, 다음의 그림과 같이 된다.
 
 ![](/assets/images/2020-10-27-22-16-00_2020-10-21-java_wrapper_class.md.png)
@@ -327,7 +341,8 @@ value 라는 변수는 위와 같이 11 이라는 **새로운 객체**를 가리
 
 # 4. 마치며
 : 길고도 험난한 여정이었다.  
-C언어는 포인터라는 개념이 있기에, 메소드를 호출해서 그 내부의 값을 변경하려면 무조건 이를 이용해야 하는데,  
+C언어는 포인터라는 개념이 있기에,   
+메소드를 호출해서 그 내부의 값을 변경하려면 무조건 이를 이용해야 하는데,  
 Java에서는 primitives 와 object 의 동작방식이 다르고,   
 이에 더해 Wrapper class는 클래스임에도 불구하고 primitives 처럼 동작해서 자주 헷갈렸다.
 
