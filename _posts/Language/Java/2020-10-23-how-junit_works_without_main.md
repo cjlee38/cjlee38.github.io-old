@@ -32,7 +32,7 @@ main method가 없는데 어떻게 실행되지? 라는 의문에 봉착했다.
 ```java
 public class Main {
 
-    public void init(String[] args) {
+    public static void init(String[] args) {
         System.out.println("hello world");
     }
 

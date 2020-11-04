@@ -5,7 +5,7 @@ date:   2020-10-19 19:45:00 +0900
 categories: problem-solving
 tags: programmers
 author: cjlee
-cover: /assets/covers/problem-solving.png
+cover: /assets/covers/coding.png
 ---
 
 [문제 링크](https://programmers.co.kr/learn/courses/30/lessons/12924)

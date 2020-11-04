@@ -5,7 +5,7 @@ date:   2020-10-04 22:11:00 +0900
 categories: problem-solving
 tags: programmers
 author: cjlee
-cover: /assets/covers/problem-solving.png
+cover: /assets/covers/coding.png
 ---
 
 # Problem
