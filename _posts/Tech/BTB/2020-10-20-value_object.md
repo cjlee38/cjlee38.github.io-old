@@ -4,6 +4,7 @@ title:  "# (번역) Value Object of Martin Fowler"
 date:   2020-10-20 12:11:00 +0900
 categories: btb
 tags: 
+cover: /assets/covers/coding.png
 ---
 
 ---
