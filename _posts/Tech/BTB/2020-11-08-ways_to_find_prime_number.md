@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "# 소수(Prime Number)를 찾는 방법 [1편] ( feat. Java )"
+title:  "# 소수(Prime Number)를 찾는 방법 ( feat. Java )"
 date:   2020-11-08 17:43:00 +0900
 categories: btb
 tags: 
@@ -10,7 +10,7 @@ cover: /assets/covers/coding.png
 # 0. 들어가며
 : 우아한 테크코스 코딩테스트를 준비하며, 이전에 풀었던 PS 문제들을 하나씩 둘러보던 중, 소수 문제를 발견했다. 소수를 구하는 방법에 여러 가지가 있는 것은 알았는데, 막상 쓰려니까 손가락이 잘 움직이지 않았다.
 
-해서 생각난 김에, 이번 1편에서는 주어진 숫자가 소수인지 확인하는 방법에 대해서 먼저 알아보고자 한다. 
+해서 생각난 김에, 이번 포스팅에서 주어진 숫자가 소수인지 확인하는 방법에 대해서  알아보고자 한다. 
 
 # 1. 소수(Prime Number)
 : 소수를 모르는 사람은 없을 것이다. 그래도 굳이 한번 적어보자면, 소수의 정의는 다음과 같다.
@@ -101,7 +101,50 @@ public static boolean isPrime(int num) {
 
 위 방법들은, 숫자가 주어졌을 때, **이것이 소수인가요?** 에 대답할 수 있는 방법들이다. 거꾸로, **소수의 목록을 주세요.** 라고 하면 어떻게 해야할까? 가령 100 까지의 소수를 달라고 하면, 2 부터 100 까지 위 isPrime()을 반복할까? 그것보다는, 소수를 한 번에 생성해놓는 것이 나을것이다. 
 
-따라서, 다음 2편에서 이 **소수의 목록**을 구할 수 있는, 4 가지의 체(sieve) 방식 - [에라토스테네스, 오일러, 순다람, 앳킨]에 대해서 살펴보자. 이상으로 포스팅을 마칩니다.
+(2020.11.16 수정)
+
+미리 소수를 다 생성을 해놓는 방식을 대개 체(체에 거른다 할 때의 그 체가 맞다.) 라고 부르는데, 여기에는 여러가지 방법이 있다. 
+
+에라토스테네스, 오일러, 순다람, 앳킨... 의 체가 있는데, 에라토스테네스의 체를 제외한 나머지 방법들은 방법도 어려울뿐더러, 수학자가 아닌데 이것까지 알아야 하나 싶어서 작성을 포기하였다. 여기서는 에라토스테네스의 체만 알아보고, 나머지가 궁금한 사람은 다음의 링크를 참고하자.
+
+- [sieve of euler](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes#Euler's_sieve)  
+- [sieve of sundaram](https://www.geeksforgeeks.org/sieve-sundaram-print-primes-smaller-n/)  
+- [sieve of atkin](https://www.geeksforgeeks.org/sieve-of-atkin/)
+
+# 에라토스테네스의 체
+
+: 에라토스테네스의 체라는, 고대의 수학자가 발견해낸 방법이 있다. 이 또한 원리는 어렵지 않은데, X 가 소수일 때, X를 제외한 나머지 X의 배수는 모두 합성수일 것은 자명하다. 따라서, 2부터 시작해서, 합성수라고 mark 되지 않은 모든 (X가 아닌) X의 배수를 합성수라고 mark 하면 된다.
+
+이 흐름은 다음의 애니메이션으로 쉽게 이해할 수 있다.
+
+![](/assets/images/Sieve_of_Eratosthenes_animation.gif)
+
+코드로는 다음과 같이 작성할 수 있다.
+
+```java
+public static boolean isPrime(int num) {
+    boolean[] prime = new boolean[num + 1]; //
+    Arrays.fill(prime, true); // 모든 숫자가 소수라고 가정
+    prime[0] = prime[1] = false; // 0과 1은 소수의 정의에서 벗어남.
+
+    for (int i = 2; i * i <= num; i++) {
+        if (prime[i]) {
+            for (int j = i * i; j <= num; j += i) {
+                prime[j] = false;
+            }
+        }
+    }
+
+    return prime[num];
+}
+```
+
+잡다한 부분은 쳐내고, for loop만 보자.  
+
+첫 번째 for문의 Math.sqrt(num) 부분은, 위에서 설명했던 부분과 같다. 그 뒷부분은 살펴볼 필요가 없다.
+
+그리고 이 for문을 반복하면서, 어떤 숫자가 소수라고 mark 되어 있다면, 해당 숫자의 `i * i` 부터, num 까지. 즉 i의 배수를 합성수로 mark 한다. 이 때, j가 왜 `i * i` 부터 시작하는지 의문을 가질 수 있는데, `i * 2` 이상 `i * (i - 1)` 이하 에서, `2`와 `i - 1` 에 해당하는 값 k 는 이미 검사되었으므로(**즉, k 는 이전에 i 였있다.**) `i * i` 부터 시작할 수 있다.
+
 
 
 
