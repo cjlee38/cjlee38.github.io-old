@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "# [Spring 학습 정리]Spring Framework 란?"
+title:  "# [Spring 학습 정리] Spring Framework 란?"
 date:   2020-11-11 09:58:00 +0900
 categories: spring
 tags: 
