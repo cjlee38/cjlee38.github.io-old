@@ -9,7 +9,7 @@ cover: /assets/covers/web-crawling.jpg
 ---
 
 # 0. 들어가며
-: [이전 포스팅](https://cjlee38.github.io/web_crawling/how_to_crawl_1) 에서, 웹 크롤링이 무엇인지 간략하게나마 이해했다. 이전 포스팅을 읽어보지 않았다면, 꼭 읽고오자.
+: [이전 포스팅](https://cjlee38.github.io/web-crawling/how_to_crawl_0) 에서, 웹 크롤링이 무엇인지 간략하게나마 이해했다. 이전 포스팅을 읽어보지 않았다면, 꼭 읽고오자.
 
 그런데, 내가 수집하고자 하는 사이트의 robots.txt를 보면, 대부분이 제한되어 있다는 것을 알 수 있다.
 
