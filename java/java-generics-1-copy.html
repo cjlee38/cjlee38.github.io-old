@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title># 제네릭 톺아보기 1</title>
+  <meta name="description" content="0. 들어가며">
+  
+  <meta name="author" content="LEECHANJOO">
+  <meta name="copyright" content="&copy; LEECHANJOO 2021">
+  
+
+  <!-- google search console -->
+  <meta name="google-site-verification" content="dOawqdqcpyXtkSA8Gr6bmoBlbqhEQylxB9MDFJ-hTus" />
+  
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="0. 들어가며" />
+  <meta property="og:url" content="https://cjlee38.github.io/java/java-generics-1-copy">
+  <meta property="og:site_name" content="Festina Lente" />
+  <meta property="og:title" content="# 제네릭 톺아보기 1" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://cjlee38.github.io/assets/covers/coding.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="# 제네릭 톺아보기 1">
+  <meta name="twitter:description" content="0. 들어가며">
+  <meta name="twitter:image" content="https://cjlee38.github.io/assets/covers/coding.png">
+  <meta name="twitter:url" content="https://cjlee38.github.io/java/java-generics-1-copy">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="https://cjlee38.github.io/java/java-generics-1-copy">
+	<link rel="alternate" type="application/rss+xml" title="Festina Lente" href="https://cjlee38.github.io/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/logo.png" alt="Festina Lente">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(/assets/covers/coding.png);">
+  <div class="scrim has-cover">
+    <header class="post-header">
+      <h1 class="title"># 제네릭 톺아보기 1</h1>
+      <p class="info">by <strong>cjlee</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta">
+  <div class="post-date">August 10, 2021</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/java">Java</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h1 id="0-들어가며">0. 들어가며</h1>
+
+<p>제네릭은 <code class="highlighter-rouge">Java Collection Framework</code> 를 사용하면 필연적으로 마주치는 문법 중 하나입니다. 처음 보았을 때에는 <code class="highlighter-rouge">&lt;&gt;</code> 형태의 다이아몬드가 당황스럽지만, 몇 번 써보고 나면 그리 어려운 개념이 아니라는걸 알게 되죠. 하지만 이건 사용자 관점일 뿐, 제네릭을 한 번이라도 만들어보려고 하면 손가락이 멈칫하게 됩니다.(특히 제가 그렇습니다.) 매 번 제네릭과 관련한 무언가를 만들어보려고 할 때마다 다시 찾아보는 것이 지겨워서, 직접 한 번 정리해볼까 합니다.</p>
+
+<h1 id="1-why-use-generics-">1. Why Use Generics ?</h1>
+
+<p>제네릭은 클래스(혹은 인터페이스, 메소드)를 정의할 때,  <code class="highlighter-rouge">Type</code> 을 파라미터로 넘겨줄 수 있도록 하는 녀석입니다. 조금 바꿔 말하면, 같은 클래스여도 그 내부에 들어있는 필드나 메소드의 속성을 다르게 정의 할 수 있다는 뜻이 됩니다. 간단하게 예시를 살펴보겠습니다.</p>
+
+<p><code class="highlighter-rouge">Java Collection Framework</code> 안에 있는 <code class="highlighter-rouge">ArrayList</code>를 간단하게 직접 만들어보겠습니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyList</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">capacity</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Object</span><span class="o">[]</span> <span class="n">array</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">MyList</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">array</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Object</span><span class="o">[</span><span class="n">capacity</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="nc">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">array</span><span class="o">[</span><span class="n">size</span><span class="o">++]</span> <span class="o">=</span> <span class="n">o</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">Object</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">array</span><span class="o">[</span><span class="n">index</span><span class="o">];</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>해당 MyList 안에는, 객체가 담길 수 있는 <code class="highlighter-rouge">Object</code> 형의 배열이 있고, 크기는 10 으로 할당해주었습니다. 이는 해당 리스트 안에는 어떠한 객체도 들어올 수 있다는 말이 되죠. 또 다시 바꿔 말하면, 이 안에는 <code class="highlighter-rouge">String</code>이 들어올수도, <code class="highlighter-rouge">Integer</code>가 들어올 수도 있다는 말이 됩니다. 따라서, 다음과 같이 사용해야 합니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">MyList</span> <span class="n">myList</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MyList</span><span class="o">();</span>
+        <span class="n">myList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"hello world!"</span><span class="o">);</span>
+        <span class="n">myList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">123</span><span class="o">);</span>
+        <span class="nc">String</span> <span class="n">str</span> <span class="o">=</span> <span class="o">(</span><span class="nc">String</span><span class="o">)</span> <span class="n">myList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+        <span class="nc">Integer</span> <span class="n">integer</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Integer</span><span class="o">)</span> <span class="n">myList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>이렇게 매 번 값을 꺼내올 때마다 타입을 캐스팅 해줘야 하죠. 의도한 것이라면 다행이지만, 의도하지 않았다면 실수할 여지가 다분합니다. <code class="highlighter-rouge">String</code> 만 넣고 싶은데, 실수로 <code class="highlighter-rouge">Integer</code>를 넣는다면 상당히 골치 아파지겠죠. 그렇다면 이를 방지하기 위해서, 각 타입마다 MyList를 만들어주어야 할까요?</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyStringList</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">capacity</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span><span class="o">[]</span> <span class="n">array</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">MyStringList</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">array</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[</span><span class="n">capacity</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="nc">String</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">array</span><span class="o">[</span><span class="n">size</span><span class="o">++]</span> <span class="o">=</span> <span class="n">o</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">array</span><span class="o">[</span><span class="n">index</span><span class="o">];</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyIntegerList</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">capacity</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Integer</span><span class="o">[]</span> <span class="n">array</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">MyIntegerList</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">array</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Integer</span><span class="o">[</span><span class="n">capacity</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="nc">Integer</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">array</span><span class="o">[</span><span class="n">size</span><span class="o">++]</span> <span class="o">=</span> <span class="n">o</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">Integer</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">array</span><span class="o">[</span><span class="n">index</span><span class="o">];</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>얼핏 보아도, 중복되는 코드가 상당히 거슬립니다. <code class="highlighter-rouge">String</code>, <code class="highlighter-rouge">Integer</code> 와 같은 녀석을 동적으로 넘겨줄 수 있다면 좋을텐데요. 앞서 했던 말을 다시 살펴보겠습니다.</p>
+
+<blockquote>
+  <p>제네릭은 클래스(혹은 인터페이스, 메소드)를 정의할 때,  <code class="highlighter-rouge">Type</code> 을 파라미터로 넘겨줄 수 있도록 하는 녀석입니다.</p>
+</blockquote>
+
+<p>다시 보니 제네릭이 어떤 부분에서 도움을 줄 수 있는지 알 수 있을 것 같습니다. 이렇게 특정 타입을 동적으로 넘겨주어 제한시킬 수도 있지만, 또 다른 강점은 컴파일 타임에 이를 검사할 수 있다는 점입니다. 만약 이러한 기능이 없었다면, 캐스팅을 시도하는 코드가 실행되기 전까지는 올바른 코드인지 <strong>기계적으로</strong> 알아낼 수 있는 방법이 없겠죠.</p>
+
+<h1 id="2-generics-basic">2. Generics Basic</h1>
+
+<p>그렇다면 제네릭을 왜 써야 하는지까지는 배웠습니다. 그렇다면 어떻게 만들 수 있을지 한번 살펴보겠습니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyList</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">capacity</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Object</span><span class="o">[]</span> <span class="n">array</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">MyList</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">array</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Object</span><span class="o">[</span><span class="n">capacity</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="no">T</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">array</span><span class="o">[</span><span class="n">size</span><span class="o">++]</span> <span class="o">=</span> <span class="n">o</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="no">T</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">(</span><span class="no">T</span><span class="o">)</span> <span class="n">array</span><span class="o">[</span><span class="n">index</span><span class="o">];</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>변화한 점은 다음과 같습니다.</p>
+
+<ol>
+  <li>클래스의 이름 뒤에 <code class="highlighter-rouge">&lt;T&gt;</code> 라는 녀석이 생겼습니다. 이 <code class="highlighter-rouge">T</code>가 의미하는 바가 무엇인지는 차차 살펴보기로 합시다. 우선은 <code class="highlighter-rouge">T</code> 라는 이름으로 <code class="highlighter-rouge">Type</code>을 제한한다는 점만 알아둡시다. 어쨌든 이 녀석은 “<code class="highlighter-rouge">T</code> 라는 이름의 제네릭을 사용하겠다” 라는 의미를 갖게 됩니다.</li>
+  <li><code class="highlighter-rouge">add</code> 메소드와 <code class="highlighter-rouge">get</code> 메소드에 T 가 붙었습니다. 이는 클래스 이름 뒤에 새로 생겼던 <code class="highlighter-rouge">T</code> 를 활용하는 부분입니다. 만약 MyList의 <code class="highlighter-rouge">Type</code> 을 <code class="highlighter-rouge">String</code>으로 지정한다면, <code class="highlighter-rouge">add</code> 메소드는 파라미터로 <code class="highlighter-rouge">String o</code> 라는 녀석을 파라미터로 받게 될겁니다.</li>
+</ol>
+
+<p>여기서 한 가지 신경쓸 점은, <code class="highlighter-rouge">array</code> 배열은 여전히 <code class="highlighter-rouge">Object</code> 형 이라는 점 입니다. 이 부분은 꽤 복잡한 개념을 다루어야 하므로 2편에서 다루겠습니다.</p>
+
+<blockquote>
+  <p><strong>Type Parameter Naming Convetions</strong><br />
+앞서 클래스의 이름 뒤에 <code class="highlighter-rouge">&lt;T&gt;</code>가 새로 생겼다고 말씀드렸는데요. 이 <code class="highlighter-rouge">T</code> 라는 이름은, 정해진 문법이 아닌 일종의 “약속” 입니다. 즉, Convetion 이죠. 오라클 공식 문서에서는 다음과 같이 설명하고 있습니다.</p>
+
+  <p>E - Element (used extensively by the Java Collections Framework)<br />
+K - Key<br />
+N - Number<br />
+T - Type<br />
+V - Value<br />
+S,U,V etc. - 2nd, 3rd, 4th types</p>
+</blockquote>
+
+<p>이렇게 만든 제네릭은, 다음과 같이 사용하면 됩니다. 간단하네요.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">MyList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">temp</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MyList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;();</span>
+        <span class="n">temp</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"World Hello ?"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">temp</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>한 가지 기존 <code class="highlighter-rouge">ArrayList</code>와 다른 점이 있다면, <code class="highlighter-rouge">new MyList&lt;String&gt;()</code> 인데요. 자세히 보면 <code class="highlighter-rouge">&lt;String&gt;</code> 이라는 녀석이 두 번이나 들어갔습니다. 기존의 <code class="highlighter-rouge">ArrayList&lt;&gt;()</code> 와는 대비되죠. 사실, <code class="highlighter-rouge">MyList&lt;&gt;()</code>라고 작성해도 됩니다. 이는 컴파일러가 갖고 있는 <code class="highlighter-rouge">타입 추론</code> 이라는 기능에 의한 것입니다. 여기서는 자세히 다룰 내용이 아니니, 궁금하신 분은 <a href="https://docs.oracle.com/javase/tutorial/java/generics/genTypeInference.html">여기</a> 를 참고해보시면 되겠습니다.</p>
+
+<p>또한, 제네릭에 사용할 <code class="highlighter-rouge">Type Parameter</code>는 다음과 같이 여러 개가 될 수 있습니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Pair</span><span class="o">&lt;</span><span class="no">K</span><span class="o">,</span> <span class="no">V</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="no">K</span> <span class="n">key</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="no">V</span> <span class="n">value</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Pair</span><span class="o">(</span><span class="no">K</span> <span class="n">key</span><span class="o">,</span> <span class="no">V</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="no">K</span> <span class="nf">getKey</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">key</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="no">V</span> <span class="nf">getValue</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">value</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h1 id="3-generic-method">3. Generic Method</h1>
+
+<p>제네릭은 클래스 뿐만 아니라, 메소드에 한정해서 사용할 수도 있습니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Util</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="nf">print</span><span class="o">(</span><span class="no">T</span> <span class="n">t</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="no">K</span><span class="o">,</span> <span class="no">V</span><span class="o">&gt;</span> <span class="kt">boolean</span> <span class="nf">compare</span><span class="o">(</span><span class="nc">Pair</span><span class="o">&lt;</span><span class="no">K</span><span class="o">,</span> <span class="no">V</span><span class="o">&gt;</span> <span class="n">p1</span><span class="o">,</span> <span class="nc">Pair</span><span class="o">&lt;</span><span class="no">K</span><span class="o">,</span> <span class="no">V</span><span class="o">&gt;</span> <span class="n">p2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">p1</span><span class="o">.</span><span class="na">getKey</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">p2</span><span class="o">.</span><span class="na">getKey</span><span class="o">())</span> <span class="o">&amp;&amp;</span>
+                <span class="n">p1</span><span class="o">.</span><span class="na">getValue</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="n">p2</span><span class="o">.</span><span class="na">getValue</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>위와 같이 ReturnType 바로 앞에 Type Parameter를 명시함으로서 제네릭 메소드임을 알리고, 메소드 파라미터 혹은 그 내부에서 다음과 같이 제네릭을 사용할 수 있죠. 역시 마찬가지로, 사용할 때에는 아래와 같이 사용하면 됩니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"Hello world!"</span><span class="o">;</span>
+        <span class="nc">Util</span><span class="o">.</span><span class="na">test</span><span class="o">(</span><span class="n">str</span><span class="o">);</span>
+        
+        <span class="nc">Pair</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">pair1</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Pair</span><span class="o">&lt;&gt;(</span><span class="s">"FOO"</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+        <span class="nc">Pair</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">pair2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Pair</span><span class="o">&lt;&gt;(</span><span class="s">"BAR"</span><span class="o">,</span> <span class="mi">2</span><span class="o">);</span>
+        <span class="nc">Util</span><span class="o">.&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="nf">compare</span><span class="o">(</span><span class="n">pair1</span><span class="o">,</span> <span class="n">pair2</span><span class="o">);</span>
+        <span class="nc">Util</span><span class="o">.</span><span class="na">compare</span><span class="o">(</span><span class="n">pair1</span><span class="o">,</span> <span class="n">pair2</span><span class="o">);</span> <span class="c1">// 타입 추론에 의해 생략 가능</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>지금까지 기본적인 제네릭의 생성, 그리고 사용법에 대해 알아봤습니다. 다음에는 제네릭을 사용할 때의 주의점에 대해 알아보겠습니다.</p>
+
+
+</article>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+	<section class="post-navigation">
+		<span class="prev-post">
+			
+				<a href="/etc/make_test_for_boj">
+					<span class="fa-stack fa-lg">
+						<i class="fa fa-square fa-stack-2x"></i>
+						<i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+					</span>
+					<span class="page-number"># 백준PS 테스트 만들기(feat. Java)</span>
+				</a>
+			
+		</span>
+		<span class="next-post">
+			
+				<a href="/java/java-generics-2">
+					<span class="page-number"># 제네릭 톺아보기 2</span>
+					<span class="fa-stack fa-lg">
+						<i class="fa fa-square fa-stack-2x"></i>
+						<i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+					</span>
+				</a>
+			
+		</span>
+	</section>
+
+
+
+
+<section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'games2';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">Festina Lente</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:gptpem38@gmail.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">gptpem38@gmail.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://github.com/cjlee38" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">cjlee38</span>
+            </a>
+          </li>
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">Data Warehouse
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-174927148-1', 'auto');
+  ga('send', 'pageview', {
+    'page': '/java/java-generics-1-copy',
+    'title': '# 제네릭 톺아보기 1'
+  });
+</script>
+
+
+
+  </body>
+
+</html>

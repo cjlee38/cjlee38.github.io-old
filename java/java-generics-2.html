@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title># 제네릭 톺아보기 2</title>
+  <meta name="description" content="Java Generic 2">
+  
+  <meta name="author" content="LEECHANJOO">
+  <meta name="copyright" content="&copy; LEECHANJOO 2021">
+  
+
+  <!-- google search console -->
+  <meta name="google-site-verification" content="dOawqdqcpyXtkSA8Gr6bmoBlbqhEQylxB9MDFJ-hTus" />
+  
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="Java Generic 2" />
+  <meta property="og:url" content="https://cjlee38.github.io/java/java-generics-2">
+  <meta property="og:site_name" content="Festina Lente" />
+  <meta property="og:title" content="# 제네릭 톺아보기 2" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://cjlee38.github.io/assets/covers/coding.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="# 제네릭 톺아보기 2">
+  <meta name="twitter:description" content="Java Generic 2">
+  <meta name="twitter:image" content="https://cjlee38.github.io/assets/covers/coding.png">
+  <meta name="twitter:url" content="https://cjlee38.github.io/java/java-generics-2">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="https://cjlee38.github.io/java/java-generics-2">
+	<link rel="alternate" type="application/rss+xml" title="Festina Lente" href="https://cjlee38.github.io/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/logo.png" alt="Festina Lente">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container has-cover" style="background-image: url(/assets/covers/coding.png);">
+  <div class="scrim has-cover">
+    <header class="post-header">
+      <h1 class="title"># 제네릭 톺아보기 2</h1>
+      <p class="info">by <strong>cjlee</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+
+
+<section class="post-meta">
+  <div class="post-date">August 29, 2021</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/java">Java</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h1 id="java-generic-2">Java Generic 2</h1>
+
+<h1 id="0-들어가며">0. 들어가며</h1>
+
+<p>지난 시간에는 제네릭이 왜 필요한지, 어떻게 사용하는지, 그리고 어떻게 만들 수 있는지 등에 대해 살펴봤습니다.
+그런데 한 가지, List 를 흉내낸 MyList 의 경우 생성자에서 여전히 Object 형을 사용했었습니다. 지난 시간의 코드를 다시 가져와보겠습니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyList</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">capacity</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Object</span><span class="o">[]</span> <span class="n">array</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">MyList</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">array</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Object</span><span class="o">[</span><span class="n">capacity</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="no">T</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">array</span><span class="o">[</span><span class="n">size</span><span class="o">++]</span> <span class="o">=</span> <span class="n">o</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="no">T</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">(</span><span class="no">T</span><span class="o">)</span> <span class="n">array</span><span class="o">[</span><span class="n">index</span><span class="o">];</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">private Object[] array</code> 그리고  <code class="highlighter-rouge">this.array = new Object[capacity];</code>  이 부분인데요. 얼핏 생각하면 <code class="highlighter-rouge">private T[] array</code> <code class="highlighter-rouge">this.array = new T[capacity];</code> 이렇게 생성하면 더 깔끔할 것 같은데, 왜 그렇게 하지 않을까요? 여기에는 (저에게) 복잡한 엔지니어링의 철학이 스며들어있는데요. 이를 자세히 살펴보겠습니다.</p>
+
+<h1 id="1-basis-1-covariant-vs-contravariant-vs-invariant">1. Basis (1) <code class="highlighter-rouge">Covariant</code> vs <code class="highlighter-rouge">Contravariant</code> vs <code class="highlighter-rouge">Invariant</code></h1>
+
+<p>갑작스럽게 익숙치 않은 두 단어가 나타납니다.  <code class="highlighter-rouge">covariant</code>는 공변, <code class="highlighter-rouge">contravariant</code>는 반공변, <code class="highlighter-rouge">invariant</code>는 무공변 이라는 단어로 해석되는데, 단어만 놓고 봤을때는 무슨 의미인지 파악하기가 조금 어렵습니다. 간략하게 정리하자면 다음과 같습니다.</p>
+
+<blockquote>
+  <p>A, B 가 타입이고, f는 타입의 변경이라고 가정합니다.</p>
+
+  <ul>
+    <li>B가 A의 서브타입일 때, f(B)는 f(A)의 서브타입이다. -&gt; 이 때 f는 공변입니다.</li>
+    <li>B가 A의 서브타입일 때, f(A)는 f(B)의 서브타입이다. -&gt; 이 때 f는 반공변입니다.</li>
+    <li>A와 B가 아무런 관계를 갖지 않는다 -&gt; 이 때 f는 무공변입니다.</li>
+  </ul>
+</blockquote>
+
+<p>헷갈리니, 조금 더 자세히 풀어봅시다. 자바에서 배열은 다음과 같이 작성할 수 있습니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Object</span><span class="o">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
+</code></pre></div></div>
+
+<p>Object와 String은 하나의 타입이고, 따라서 배열의 경우 f(Object)는 <code class="highlighter-rouge">Object[]</code> 로 만드는 것이고, f(String)은 <code class="highlighter-rouge">String[]</code> 이 되겠죠. 이러한 경우에, <code class="highlighter-rouge">String[]</code> 은 <code class="highlighter-rouge">Object[]</code> 의 서브타입이 될 수 있으므로, 공변입니다.</p>
+
+<p>한편, 제네릭은 어떨까요?</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">List</span><span class="o">&lt;</span><span class="nc">Object</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;();</span>
+</code></pre></div></div>
+
+<p>위와 같은 코드는 컴파일 되지 않습니다. 당연히, <code class="highlighter-rouge">List&lt;String&gt; list = new ArrayList&lt;Object&gt;();</code>와 같은 반공변 코드도 안되겠죠. 따라서 제네릭은 무공변입니다. 즉, 제네릭은 타입을 가지고 상속관계를 결정지을 수 없다는 얘기가 되죠. List<object>와 List<String>은 얼핏 생각하기에 상속관계를 가질 것 같지만, 실제로 둘은 관계가 없습니다.</String></object></p>
+
+<blockquote>
+  <p>Note 1. 하지만 같은 타입이라면 상속관계가 성립합니다. 즉, Collection<String>과 List<String>, 그리고 ArrayList<String>은 [추이적 관계](https://ko.wikipedia.org/wiki/%EC%B6%94%EC%9D%B4%EC%A0%81_%EA%B4%80%EA%B3%84)를 갖습니다.</String></String></String></p>
+</blockquote>
+
+<blockquote>
+  <p>Note 2. 공변, 반공변, 무공변 등은 프로그래밍 언어의 설계적인 특성입니다. 가령, 다음과 같은 코드는 자바에서 올바르게 Override 할 수 있습니다.</p>
+
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Super</span> <span class="o">{</span>  
+	<span class="nc">Object</span> <span class="nf">getSomething</span><span class="o">()</span> <span class="o">{}</span>  
+<span class="o">}</span>  
+<span class="kd">class</span> <span class="nc">Sub</span> <span class="kd">extends</span> <span class="nc">Super</span> <span class="o">{</span>  
+	<span class="nc">String</span> <span class="nf">getSomething</span><span class="o">()</span> <span class="o">{}</span>  
+<span class="o">}</span>  
+</code></pre></div>  </div>
+
+  <p>이를 <strong>Covariant Return Type</strong> 이라고 부르고, JDK 1.5 부터 생겨난 기능입니다.<br />
+한편, 다음과 같은 코드는 자바에서 Override가 아닌, Overload 됩니다. 타 언어에서는 Override가 가능합니다.</p>
+
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Super</span> <span class="o">{</span>  
+	<span class="kt">void</span> <span class="nf">doSomething</span><span class="o">(</span><span class="nc">String</span> <span class="n">param</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>  
+<span class="o">}</span>  
+<span class="kd">class</span> <span class="nc">Sub</span> <span class="kd">extends</span> <span class="nc">Super</span> <span class="o">{</span>  
+	<span class="kt">void</span> <span class="nf">doSomething</span><span class="o">(</span><span class="nc">Object</span> <span class="n">param</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>  
+<span class="o">}</span>  
+</code></pre></div>  </div>
+</blockquote>
+
+<h1 id="2-basis-2-type-erasure">2. Basis (2) Type Erasure</h1>
+
+<p>Type Erasure는 제네릭이 JDK 1.5부터 도입되었기 때문에, 이전 버전에 작성된 코드와의 호환성을 위해 도입된 기능입니다.  Type Erasure의 기능은 다음 세 가지로 요악할 수 있습니다.</p>
+
+<ol>
+  <li>제네릭의 타입 파라미터(e.g. T)를 일반적인 클래스, 인터페이스 등으로 교체합니다. 만약 bound(경계)가 명시되어 있는 경우, 해당 bound로 교체하고, unbounded(경계가 없는) 인 경우 Object로 교체합니다.</li>
+  <li>필요하다면, 타입 캐스팅을 집어 넣습니다.</li>
+  <li>다형성을 유지하기 위해, <code class="highlighter-rouge">브릿지 메소드</code>를 생성합니다.</li>
+</ol>
+
+<p>2번은 간단하니, 1번과 3번만 살펴봅시다</p>
+
+<h2 id="2-1-replace-type-parameters">2-1. Replace Type Parameters</h2>
+
+<p>다음과 같은 코드가 있다고 가정해봅시다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Node</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="no">T</span> <span class="n">data</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Node</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">next</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Node</span><span class="o">(</span><span class="no">T</span> <span class="n">data</span><span class="o">,</span> <span class="nc">Node</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">next</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">next</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="no">T</span> <span class="nf">getData</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">data</span><span class="o">;</span> <span class="o">}</span>
+    <span class="c1">// ...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>여기서 T는 unbounded, 즉 경계가 없기 때문에 다음과 같이 Object로 교체됩니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="nc">Object</span> <span class="n">data</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Node</span> <span class="n">next</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Node</span><span class="o">(</span><span class="nc">Object</span> <span class="n">data</span><span class="o">,</span> <span class="nc">Node</span> <span class="n">next</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">next</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">Object</span> <span class="nf">getData</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">data</span><span class="o">;</span> <span class="o">}</span>
+    <span class="c1">// ...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>만약 T가 다음과 같이 Comparable이라는 경계를 갖고있다면,</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Node</span><span class="o">&lt;</span><span class="no">T</span> <span class="kd">extends</span> <span class="nc">Comparable</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;&gt;</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="no">T</span> <span class="n">data</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Node</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">next</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Node</span><span class="o">(</span><span class="no">T</span> <span class="n">data</span><span class="o">,</span> <span class="nc">Node</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">next</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">next</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="no">T</span> <span class="nf">getData</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">data</span><span class="o">;</span> <span class="o">}</span>
+    <span class="c1">// ...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>해당 bound의 클래스(혹은 인터페이스) 로 교체됩니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="nc">Comparable</span> <span class="n">data</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Node</span> <span class="n">next</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Node</span><span class="o">(</span><span class="nc">Comparable</span> <span class="n">data</span><span class="o">,</span> <span class="nc">Node</span> <span class="n">next</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">next</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nc">Comparable</span> <span class="nf">getData</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">data</span><span class="o">;</span> <span class="o">}</span>
+    <span class="c1">// ...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>여기서 말하는 “경계” 가 무엇인지 모르셔도 괜찮습니다. 다음 3편에서(😂) 설명하겠습니다.</p>
+
+<h2 id="2-2-bridge-method">2-2. Bridge Method</h2>
+
+<p>Bridge Method는 타입 삭제로 인해 발생할 수 있는 문제를 해결하기 위해 나타난 기능입니다. 다음과 같은 코드가 있다고 가정해봅시다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Node</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="no">T</span> <span class="n">data</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Node</span><span class="o">(</span><span class="no">T</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">;</span> <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setData</span><span class="o">(</span><span class="no">T</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Node.setData"</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyNode</span> <span class="kd">extends</span> <span class="nc">Node</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">MyNode</span><span class="o">(</span><span class="nc">Integer</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span> <span class="kd">super</span><span class="o">(</span><span class="n">data</span><span class="o">);</span> <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setData</span><span class="o">(</span><span class="nc">Integer</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"MyNode.setData"</span><span class="o">);</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">setData</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>그리고, 위와 같이 정의된 클래스를 다음과 같이 사용하겠습니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">MyNode</span> <span class="n">mn</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MyNode</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+<span class="nc">Node</span> <span class="n">n</span> <span class="o">=</span> <span class="n">mn</span><span class="o">;</span>            <span class="c1">// A raw type - compiler throws an unchecked warning</span>
+<span class="n">n</span><span class="o">.</span><span class="na">setData</span><span class="o">(</span><span class="s">"Hello"</span><span class="o">);</span>     <span class="c1">// Causes a ClassCastException to be thrown.</span>
+<span class="nc">Integer</span> <span class="n">x</span> <span class="o">=</span> <span class="n">mn</span><span class="o">.</span><span class="na">data</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>타입 제거가 발생한다면, 컴파일 이후는 다음과 같은 모습일텐데요.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">MyNode</span> <span class="n">mn</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MyNode</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
+<span class="nc">Node</span> <span class="n">n</span> <span class="o">=</span> <span class="o">(</span><span class="nc">MyNode</span><span class="o">)</span><span class="n">mn</span><span class="o">;</span>         <span class="c1">// A raw type - compiler throws an unchecked warning</span>
+<span class="n">n</span><span class="o">.</span><span class="na">setData</span><span class="o">(</span><span class="s">"Hello"</span><span class="o">);</span>          <span class="c1">// Causes a ClassCastException to be thrown.</span>
+<span class="nc">Integer</span> <span class="n">x</span> <span class="o">=</span> <span class="o">(</span><span class="nc">String</span><span class="o">)</span><span class="n">mn</span><span class="o">.</span><span class="na">data</span><span class="o">;</span> 
+</code></pre></div></div>
+
+<p>실제로 실행하려고 보면, ClassCastException 이라는, 다소 당황스러운 에러 메시지가 발생하게 됩니다. 그 이유는, 위에 정의된 <code class="highlighter-rouge">Node</code>, 그리고 <code class="highlighter-rouge">MyNode</code>의 타입 제거 이후의 모습과, 브릿지 메소드가 생성되었을 때의 모습을 살펴보면 알 수 있습니다. 가장 먼저, 타입 제거가 된 모습은 다음과 같습니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="nc">Object</span> <span class="n">data</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Node</span><span class="o">(</span><span class="nc">Object</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">;</span> <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setData</span><span class="o">(</span><span class="nc">Object</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Node.setData"</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyNode</span> <span class="kd">extends</span> <span class="nc">Node</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="nf">MyNode</span><span class="o">(</span><span class="nc">Integer</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span> <span class="kd">super</span><span class="o">(</span><span class="n">data</span><span class="o">);</span> <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setData</span><span class="o">(</span><span class="nc">Integer</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"MyNode.setData"</span><span class="o">);</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">setData</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>위 코드를 보면, MyNode가 Node 클래스를 상속하고 있는데, <code class="highlighter-rouge">Node</code> 클래스의 <code class="highlighter-rouge">setData()</code> 메소드와 <code class="highlighter-rouge">MyNode</code> 클래스의 <code class="highlighter-rouge">setData()</code> 메소드의 시그니처가 다릅니다. 하나는 Object를, 하나는 Integer를 파라미터로 받고 있는데요. 이렇게 될 경우 <code class="highlighter-rouge">setData</code> 메소드는 override가 아닌 <strong>overload</strong> 가 되겠죠. 코드가 여기까지만 변환되었다면, <code class="highlighter-rouge">n</code> 변수가 호출하는 <code class="highlighter-rouge">setData</code> 메소드는 <code class="highlighter-rouge">mn</code> 변수가 호출하는 <code class="highlighter-rouge">setData</code>는 다른 메소드이니 문제가 발생하게 됩니다. 즉, 다형성을 유지할 수 없어지게 되는데요. 이러한 문제를 해결하기 위해, 컴파일러는 다음과 같은 메소드를 클래스 내에 삽입합니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">setData</span><span class="o">(</span><span class="nc">Object</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">setData</span><span class="o">((</span><span class="nc">Integer</span><span class="o">)</span> <span class="n">data</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>이러한 메소드를 브릿지 메소드라 부르고, 해당 메소드내에 있는 <code class="highlighter-rouge">(Integer)</code> 캐스팅으로 인해 <code class="highlighter-rouge">ClassCastException</code>이 발생하게 됩니다.</p>
+
+<h1 id="3-so-">3. So …</h1>
+
+<p>본격적으로 왜 Object[] array를 만들수 없는지에 대해 알아보겠습니다. 타입 파라미터 형태의 배열을 만들 수 없는 이유를 말하는데 뭐 이리 잡설이 기냐 라고 얘기할 수도 있겠습니다만, 이러한 요소들을 이해하고 있지 않으면, 그 이유를 이해하기가 어렵기 때문입니다.</p>
+
+<p>앞서, 자바의 배열은 공변이라고 말씀드렸습니다. 따라서, 다음과 같은 코드는 문제가 없습니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Object</span><span class="o">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
+</code></pre></div></div>
+
+<p>하지만, 반공변은 아니기 때문에, 다음과 같은 코드는 당연히 실행할 수 없겠죠.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Object</span><span class="o">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Object</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
+<span class="nc">Integer</span><span class="o">[]</span> <span class="n">iarray</span> <span class="o">=</span> <span class="n">array</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>그렇다면 지난 시간의 MyList 코드를 가져와서, 타입 파라미터의 배열을 만들 수 있다고 가정해보겠습니다. 그리고, 해당 배열을 가져오는 함수도 하나 만들어보죠.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyList</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">capacity</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">size</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="no">T</span><span class="o">[]</span> <span class="n">array</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">MyList</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">array</span> <span class="o">=</span> <span class="k">new</span> <span class="no">T</span><span class="o">[</span><span class="n">capacity</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="no">T</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">array</span><span class="o">[</span><span class="n">size</span><span class="o">++]</span> <span class="o">=</span> <span class="n">o</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="no">T</span> <span class="nf">get</span><span class="o">(</span><span class="kt">int</span> <span class="n">index</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">(</span><span class="no">T</span><span class="o">)</span> <span class="n">array</span><span class="o">[</span><span class="n">index</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    <span class="c1">// 새로 추가한 코드</span>
+    <span class="kd">public</span> <span class="no">T</span><span class="o">[]</span> <span class="nf">getArray</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">array</span><span class="o">;</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>그리고, 다음과 같이 사용해보겠습니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">MyList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">myList</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MyList</span><span class="o">&lt;&gt;();</span>
+<span class="nc">String</span><span class="o">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="n">myList</span><span class="o">.</span><span class="na">getArray</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>겉보기에는 멀쩡해보이는데요. myList에서 얻어온 getArray() 는 타입 파라미터로 넣어준 String[]의 배열이고, 이를 <code class="highlighter-rouge">String[] array</code> 에서 받아내고 있으니까요.</p>
+
+<p>그런데, 앞서 이야기 했던 Type Erasure에 대해 다시 생각해보겠습니다. Type Erasure는 <strong>Unbounded인 경우 타입 파라미터를 모두 Object로 교체한다</strong>고 했었는데요. 그렇다면 실제 컴파일 이후 MyList의 생성자 부분 코드는 <code class="highlighter-rouge">this.array = new Object[capacity];</code> 이겠네요. 역시 마찬가지로, getArray() 함수 또한 <code class="highlighter-rouge">Object[]</code> 배열을 돌려줄 것이구요. 그런데 이를 <code class="highlighter-rouge">String[]</code> 배열에서 받아내고 있습니다. 이는 금방 보았던 공변성에 어긋나게 되고, 문제가 발생하게 됩니다.</p>
+
+<h1 id="4-plus">4. Plus</h1>
+
+<h2 id="4-1-casting-to-type-parameters-array">4-1. Casting to Type Parameter’s array</h2>
+
+<p>타입 파라미터의 배열 생성이 불가능하다면, Object의 배열을 생성한 뒤, 타입 파라미터로 캐스팅하는 것은 어떨까요? 즉 다음과 같습니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">T</span><span class="o">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="o">(</span><span class="no">T</span><span class="o">[])</span> <span class="k">new</span> <span class="nc">Object</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
+</code></pre></div></div>
+
+<p>이 또한 괜찮은 선택지인 것 처럼 보이지만, 실제로는 잘못된 다운캐스팅(Downcasting) 으로 인해 실패하게 됩니다. 생성하는 객체가 Object 객체의 배열이기 때문에, 이를 다른 타입의 객체 배열로 캐스팅하는 것은 성립이 되지 않습니다. 다운캐스팅은 다음과 같이 실제로 생성하는 객체가 해당 타입이거나, 혹은 그 상위일때에만 가능합니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Object</span><span class="o">[]</span> <span class="n">array</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
+<span class="nc">String</span><span class="o">[]</span> <span class="n">sArray</span> <span class="o">=</span> <span class="o">(</span><span class="nc">String</span><span class="o">[])</span> <span class="n">array</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>여기서 <code class="highlighter-rouge">new String[10];</code> 을 <code class="highlighter-rouge">new Object[10];</code> 으로 바꾸게 되면 <code class="highlighter-rouge">ClassCastException</code>이 발생합니다.</p>
+
+<h2 id="4-2-array-of-generic-class">4-2. Array of Generic Class</h2>
+
+<p>다음으로 살펴볼 예시는, 제네릭 클래스의 배열입니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;[]</span> <span class="n">arrOfList</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;[</span><span class="mi">10</span><span class="o">];</span>
+</code></pre></div></div>
+
+<p>이와 같은 코드는 실제로 컴파일 되지 않지만, 가능하다고 가정해봅니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Object</span><span class="o">[]</span> <span class="n">objarr</span> <span class="o">=</span> <span class="n">arrOfList</span><span class="o">;</span>
+<span class="n">objarr</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;();</span>
+</code></pre></div></div>
+
+<p>이 때, 위와 같이 코드를 작성하면, 문제가 발생하지 않습니다. Type Erasure로 인해 런타임 당시에는 결국 <code class="highlighter-rouge">List&lt;String&gt;[]</code> 이 아닌 <code class="highlighter-rouge">List[]</code> 니까요. 위에서는 List<String>만 받기로 했는데, List<Integer>를 할당하고 있으니 예외가 발생해야 하는데, 그렇지 않죠. 애초에 제네릭의 탄생 목적이 사용하는 타입의 안정성을 보장하기 위한 것인데(즉, 제한된 종류의 타입만 한정지어서 사용하도록 하고, 이에 관련된 문제는 컴파일 도중에 잡아낼 수 있도록이죠), String을 넣기로 약속한 곳에 Integer를 넣을 수 있다면 제네릭의 안정성이 전혀 보장될 수 없습니다. 그렇기 때문에 애초에 `Generic Array Creation` 이라는 경고 문구가 등장합니다.</Integer></String></p>
+
+<p>예외가 발생한다고 해서, 다음과 같은 코드를 작성해서도 안됩니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;[]</span> <span class="n">listOfArr</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
+</code></pre></div></div>
+
+<p>아예 제네릭을 빼버리는건데요. 그러면 다음과 같이 흐름이 이어질 경우 역시 타입 캐스팅 도중에 <code class="highlighter-rouge">ClassCastException</code>이 발생하게 됩니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Object</span><span class="o">[]</span> <span class="n">objarr</span> <span class="o">=</span> <span class="n">listOfArr</span><span class="o">;</span>
+
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">iList</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="n">iList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">123</span><span class="o">);</span>
+<span class="n">objarr</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">ilist</span><span class="o">;</span>
+
+<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">strlistarr</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span> <span class="c1">// exception occurs here</span>
+</code></pre></div></div>
+
+<p>억지를 부려서 <code class="highlighter-rouge">List&lt;String&gt;</code>만 받기로 약속한 <code class="highlighter-rouge">listOfArr</code> 에 <code class="highlighter-rouge">List&lt;Integer&gt;</code>를 넣어줬는데요. 꺼낼때에는 <code class="highlighter-rouge">listOfArr</code>은 “당연히 내 안에 들어있는 녀석들은 String이겠군” 하고 캐스팅을 하려다 문제가 발생하게 됩니다. 지난 편에 제네릭을 소개할 때 보여드렸던, 실수할 수 있는 케이스와 결국 같은 맥락입니다.</p>
+
+<p>지금까지 제네릭 속에 들어있는 프로그래밍 이론에 관해서 다뤄보고, 이에 기인한 제네릭의 주의점에 대해서 알아보았습니다. 꽤나 복잡하고 많은 양을 다루었다고 생각했는데, 아직도 갈 길이 멉니다. 다음 시간에는 타입 경계, 그리고 와일드카드에 대해서 이야기해보고자 합니다. 감사합니다.</p>
+
+<h2 id="5-reference">5. Reference</h2>
+
+<p><a href="https://edykim.com/ko/post/what-is-coercion-and-anticommunism/">공변성과 반공변성은 무엇인가? | edykim</a>
+<a href="https://stackoverflow.com/questions/18581002/how-to-create-a-generic-array">java - How to create a generic array? - Stack Overflow</a>
+<a href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_%28computer_science%29">Covariance and contravariance (computer science) - Wikipedia</a></p>
+
+
+</article>
+
+
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+	<section class="post-navigation">
+		<span class="prev-post">
+			
+				<a href="/java/java-generics-1-copy">
+					<span class="fa-stack fa-lg">
+						<i class="fa fa-square fa-stack-2x"></i>
+						<i class="fa fa-angle-double-left fa-stack-1x fa-inverse"></i>
+					</span>
+					<span class="page-number"># 제네릭 톺아보기 1</span>
+				</a>
+			
+		</span>
+		<span class="next-post">
+			
+				<a href="/python/journey-to-property">
+					<span class="page-number"># (Python) @Property까지 가는 길</span>
+					<span class="fa-stack fa-lg">
+						<i class="fa fa-square fa-stack-2x"></i>
+						<i class="fa fa-angle-double-right fa-stack-1x fa-inverse"></i>
+					</span>
+				</a>
+			
+		</span>
+	</section>
+
+
+
+
+<section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'games2';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">Festina Lente</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:gptpem38@gmail.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">gptpem38@gmail.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://github.com/cjlee38" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">cjlee38</span>
+            </a>
+          </li>
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+      <p class="text">Data Warehouse
+</p>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-174927148-1', 'auto');
+  ga('send', 'pageview', {
+    'page': '/java/java-generics-2',
+    'title': '# 제네릭 톺아보기 2'
+  });
+</script>
+
+
+
+  </body>
+
+</html>

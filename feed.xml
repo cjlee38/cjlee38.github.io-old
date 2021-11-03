@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Festina Lente</title>
+    <description>Data Warehouse
+</description>
+    <link>https://cjlee38.github.io/</link>
+    <atom:link href="https://cjlee38.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 03 Nov 2021 12:57:13 +0900</pubDate>
+    <lastBuildDate>Wed, 03 Nov 2021 12:57:13 +0900</lastBuildDate>
+    <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title># 객체지향의 사실과 오해를 읽고, 짧은 감상문</title>
+        <description>&lt;p&gt;&lt;img src=&quot;../../assets/images/2021-10-30-00-57-59.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt; &lt;h1 id=&quot;0-계기&quot;&gt;0. 계기&lt;/h1&gt; &lt;p&gt;코드를 작성하면서 언제나 들었던 고민은 “더러워보인다” 였습니다. 누구도 아닌 나 스스로가 작성한 코드이니, 해결책 또한 마땅히 보이지 않았습니다.&lt;/p&gt; &lt;p&gt;이보다 더 문제인 점은, 가끔은...</description>
+        <pubDate>Fri, 22 Oct 2021 22:13:50 +0900</pubDate>
+        <link>https://cjlee38.github.io/diary/oop_truth_and_misunderstanding</link>
+        <guid isPermaLink="true">https://cjlee38.github.io/diary/oop_truth_and_misunderstanding</guid>
+        
+        
+        <category>diary</category>
+        
+      </item>
+    
+      <item>
+        <title># (Python) @Property까지 가는 길</title>
+        <description>&lt;blockquote&gt; &lt;p&gt;Note 1. 개인적으로 공부해가며 작성한 글이기 때문에 틀린 내용이 있을 수 있습니다. 틀린 내용을 발견하시면 언제든 지적 부탁드립니다.&lt;br /&gt; Note 2. 이해를 돕기 위해 일부 내용은 Java와 비교해가며 글을...</description>
+        <pubDate>Thu, 16 Sep 2021 22:05:00 +0900</pubDate>
+        <link>https://cjlee38.github.io/python/journey-to-property</link>
+        <guid isPermaLink="true">https://cjlee38.github.io/python/journey-to-property</guid>
+        
+        
+        <category>python</category>
+        
+      </item>
+    
+      <item>
+        <title># 제네릭 톺아보기 2</title>
+        <description>&lt;h1 id=&quot;java-generic-2&quot;&gt;Java Generic 2&lt;/h1&gt; &lt;h1 id=&quot;0-들어가며&quot;&gt;0. 들어가며&lt;/h1&gt; &lt;p&gt;지난 시간에는 제네릭이 왜 필요한지, 어떻게 사용하는지, 그리고 어떻게 만들 수 있는지 등에 대해 살펴봤습니다. 그런데 한 가지, List 를 흉내낸 MyList 의...</description>
+        <pubDate>Sun, 29 Aug 2021 23:44:00 +0900</pubDate>
+        <link>https://cjlee38.github.io/java/java-generics-2</link>
+        <guid isPermaLink="true">https://cjlee38.github.io/java/java-generics-2</guid>
+        
+        
+        <category>java</category>
+        
+      </item>
+    
+      <item>
+        <title># 제네릭 톺아보기 1</title>
+        <description>&lt;h1 id=&quot;0-들어가며&quot;&gt;0. 들어가며&lt;/h1&gt; &lt;p&gt;제네릭은 &lt;code class=&quot;highlighter-rouge&quot;&gt;Java Collection Framework&lt;/code&gt; 를 사용하면 필연적으로 마주치는 문법 중 하나입니다. 처음 보았을 때에는 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;&amp;gt;&lt;/code&gt; 형태의 다이아몬드가 당황스럽지만, 몇 번 써보고 나면 그리 어려운 개념이...</description>
+        <pubDate>Tue, 10 Aug 2021 19:26:00 +0900</pubDate>
+        <link>https://cjlee38.github.io/java/java-generics-1-copy</link>
+        <guid isPermaLink="true">https://cjlee38.github.io/java/java-generics-1-copy</guid>
+        
+        
+        <category>java</category>
+        
+      </item>
+    
+      <item>
+        <title># 백준PS 테스트 만들기(feat. Java)</title>
+        <description>&lt;h2 id=&quot;0-들어가며&quot;&gt;0. 들어가며&lt;/h2&gt; &lt;p&gt;코딩테스트를 준비하는 여러분 중 대부분은 아마 백준이나 프로그래머스를 많이 사용하실텐데요. 해당 사이트에서 주어지는 환경 날 것을 그대로 사용하기는 아무래도 어렵고, IDE 에서 코드를 작성한 뒤 복사 붙여넣기...</description>
+        <pubDate>Fri, 30 Jul 2021 12:08:00 +0900</pubDate>
+        <link>https://cjlee38.github.io/etc/make_test_for_boj</link>
+        <guid isPermaLink="true">https://cjlee38.github.io/etc/make_test_for_boj</guid>
+        
+        
+        <category>etc</category>
+        
+      </item>
+    
+      <item>
+        <title># Virtual Machine in M1 Mac</title>
+        <description>&lt;h1 id=&quot;utm-&quot;&gt;UTM ?&lt;/h1&gt; &lt;p&gt;2021.07.25 기준, 아직까지는 M1 Mac에서는 VirtualBox나 Vmware 같은 가상머신 소프트웨어가 지원되지 않는 것으로 확인됩니다.&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;https://isapplesiliconready.com/kr&quot;&gt;Is Apple Silicon ready?&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;Parallels 같은 유료 소프트웨어도 있지만, 비싼...</description>
+        <pubDate>Sun, 25 Jul 2021 12:08:00 +0900</pubDate>
+        <link>https://cjlee38.github.io/etc/virtual_machine_in_m1</link>
+        <guid isPermaLink="true">https://cjlee38.github.io/etc/virtual_machine_in_m1</guid>
+        
+        
+        <category>etc</category>
+        
+      </item>
+    
+      <item>
+        <title># 백준[No.1676] - 팩토리얼 0의 개수 ( Java )</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1676&quot;&gt;문제링크&lt;/a&gt;&lt;/p&gt; &lt;h1 id=&quot;problem&quot;&gt;Problem&lt;/h1&gt; &lt;p&gt;&lt;img src=&quot;/assets/images/2021-01-02-22-16-45_2021-01-02-problem_solving_22.md.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt; &lt;h1 id=&quot;solve&quot;&gt;Solve&lt;/h1&gt; &lt;h2 id=&quot;접근-방법&quot;&gt;접근 방법&lt;/h2&gt; &lt;p&gt;: 문제를 푸는 원리만 이해하면, 구현은 쉽게 할수 있는 문제다.&lt;/p&gt; &lt;p&gt;우선, 주어진 문제의 이해를 위해 &lt;code class=&quot;highlighter-rouge&quot;&gt;factorial(10)&lt;/code&gt;...</description>
+        <pubDate>Sat, 02 Jan 2021 22:17:00 +0900</pubDate>
+        <link>https://cjlee38.github.io/problem-solving/problem_solving_22</link>
+        <guid isPermaLink="true">https://cjlee38.github.io/problem-solving/problem_solving_22</guid>
+        
+        <category>baekjoon</category>
+        
+        
+        <category>problem-solving</category>
+        
+      </item>
+    
+      <item>
+        <title># [Spring 학습 정리] Dependency Injection 의 필요성</title>
+        <description>&lt;h1 id=&quot;0-dependency-injection-이란&quot;&gt;0. Dependency Injection 이란?&lt;/h1&gt; &lt;p&gt;: Dependency Injection(이하, DI)는 Spring에서만 사용되는 용어가 아니라,&lt;br /&gt; 객체지향프로그래밍(이하, OOP)에서 통용되는 개념이다. 이를 이해하기 위해서는, OOP에서 중요시 여기는 SOLID의 5원칙에 대해서 알아야 한다.&lt;/p&gt; &lt;p&gt;이번...</description>
+        <pubDate>Tue, 29 Dec 2020 09:58:00 +0900</pubDate>
+        <link>https://cjlee38.github.io/spring/Dependency_injection</link>
+        <guid isPermaLink="true">https://cjlee38.github.io/spring/Dependency_injection</guid>
+        
+        
+        <category>spring</category>
+        
+      </item>
+    
+      <item>
+        <title># (Java8) 동작(≒메소드) 파라미터화 </title>
+        <description>&lt;blockquote&gt; &lt;p&gt;모던 자바 인 액션(라울-게이브리얼 우르마 저, 한빛미디어)을 기반으로 작성하였습니다.&lt;/p&gt; &lt;/blockquote&gt; &lt;h1 id=&quot;0-들어가며&quot;&gt;0. 들어가며&lt;/h1&gt; &lt;p&gt;: 스트림이나 람다 같은 프로그래밍 테크닉들을 사용하면서, “이게 어떻게 동작하지?” 라는 그 원리에 대해서는 전혀 생각을...</description>
+        <pubDate>Mon, 21 Dec 2020 14:33:00 +0900</pubDate>
+        <link>https://cjlee38.github.io/java/java8-behavior-parameterization</link>
+        <guid isPermaLink="true">https://cjlee38.github.io/java/java8-behavior-parameterization</guid>
+        
+        
+        <category>java</category>
+        
+      </item>
+    
+      <item>
+        <title># 마음으로 이해하는 알고리즘 : LIS의 길이구하기 ( feat. Java )</title>
+        <description>&lt;center&gt; &lt;iframe src=&quot;https://giphy.com/embed/3o6Yg4GUVgIUg3bf7W&quot; width=&quot;480&quot; height=&quot;205&quot; frameborder=&quot;0&quot; class=&quot;giphy-embed&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;&lt;p&gt;&lt;a href=&quot;https://giphy.com/gifs/producthunt-zach-galifianakis-algorithm-3o6Yg4GUVgIUg3bf7W&quot;&gt;&lt;/a&gt;&lt;/p&gt; &lt;/center&gt; &lt;h1 id=&quot;0-들어가며&quot;&gt;0. 들어가며&lt;/h1&gt; &lt;p&gt;: 누군가는 라면받침대라고 표현하는 종만북을 도서관에서 빌려봤다. 생각보다 너무 어려운 난이도에 책장을 넘기던 중, 어디선가 많이 주워들은...</description>
+        <pubDate>Tue, 15 Dec 2020 13:57:00 +0900</pubDate>
+        <link>https://cjlee38.github.io/algorithm/ways_to_get_LIS_length</link>
+        <guid isPermaLink="true">https://cjlee38.github.io/algorithm/ways_to_get_LIS_length</guid>
+        
+        
+        <category>algorithm</category>
+        
+      </item>
+    
+  </channel>
+</rss>
